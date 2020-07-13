@@ -28,6 +28,10 @@
 .font-roboto{
     font-family: var(--roboto);
 }
+.font-sofia{
+    font-family: var(--sofia);
+}
+
 .lighblue{
     color: lightblue;
 }
@@ -76,16 +80,16 @@
      width: 40px;
      height: 40px;
      background-color: var(--primary-color);
-     top: 40%;
+     top: 50%;
      opacity: 0.8;
      
      border-radius: 50px;
      }
      .carousel-control-next{
-        right: 1%;
+        right: -1%;
      }
      .carousel-control-prev{
-        left: 1%;
+        left: -1%;
      }
      /** Slider two**/
       
@@ -127,8 +131,8 @@
         height: 22px;
     }
     .site-btn.btn-span {
-        padding: 8px;
-        font-size: 14px;
+        padding: 7px;
+        font-size: 12px;
     }
     .carousel-control-next{
         right: -11px;
@@ -136,4 +140,11 @@
      .carousel-control-prev{
         left: -11px;
      }
+     .navbar-nav .search-icon {
+        margin-right: 6.5em !important;
+        position: fixed;
+        left: 85%;
+        color: white;
+        top: 9px;
+    }
  }
