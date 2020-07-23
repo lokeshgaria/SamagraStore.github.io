@@ -1,6 +1,9 @@
 /*------- google fonts --------*/
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:ital@1&family=Roboto&family=Sofia&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
 :root{
     --primary-color: #45ccb8;
     --light-gray: #2b3032a1;
