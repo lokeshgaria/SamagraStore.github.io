@@ -287,4 +287,12 @@ html{
     .band h1{
         font-size: 17px;
     }
+    /* beats section  */
+    .beats-heading {
+        font-size: 18px;
+       }
+       .sub-heading {
+        
+        font-size: 16px;
+    }   
  }
