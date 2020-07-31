@@ -72,12 +72,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link  text-uppercase" href="#">Home <span
+                        <a class="nav-item nav-link  text-uppercase" href="index.html">Home <span
                                 class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link text-uppercase" href="#">Featured Products</a>
-                        <a class="nav-item nav-link text-uppercase" href="#">Collection</a>
-                        <a class="nav-item nav-link text-uppercase" href="#">Storee</a>
-                        <a class="nav-item nav-link text-uppercase" href="#">Our-Team</a>
+                        
+                        <a class="nav-item nav-link text-uppercase" href="product.html">Collection</a>
+                        <a class="nav-item nav-link text-uppercase" href="product copy.html">Store</a>
+                        
                     </div>
 
                 </div>
@@ -89,7 +89,7 @@
                     </form>
                     <a href="cart.html">
                         <li class="nav-item border rounded-circle mx-2 search-icon">
-                            <i class="fas fa-shopping-cart p-2"></i>
+                            <i class="fas fa-shopping-cart p-2 text-secondary"></i>
                     </a>
                     </li>
                 </div>
@@ -102,70 +102,96 @@
     cart items details 
 -->
         <div class="container ">
-            <table class="my-5  w-100 table">
-                <tr class="bg-warning  class=" text-center">
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="container d-flex flex-wrap flex-column">
-                            <img src="images/product-1.jpg" alt="" class="img-fluid my-3"
-                                style="width: 100px; height: 100px;">
-                            <p>Red printed T-shirt</p>
-                            <small>$550.00</small>
-                            <a href="">Remove</a>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1" class="w-25 text-center"></td>
-                    <td>$50</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="container d-flex flex-wrap flex-column">
-                            <img src="images/product-2.jpg" alt="" class="img-fluid my-3"
-                                style="width: 100px; height: 100px;">
-                            <p>Red printed T-shirt</p>
-                            <small>$250.00</small>
-                            <a href="">Remove</a>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1" class="w-25 text-center"></td>
-                    <td>$50</td>
-
-                </tr>
-                <tr>
-                    <td>
-                        <div class="container d-flex flex-wrap flex-column">
-                            <img src="images/product-3.jpg" alt="" class="img-fluid my-3"
-                                style="width: 100px; height: 100px;">
-                            <p>Red printed T-shirt</p>
-                            <small>$150.00</small>
-                            <a href="">Remove</a>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1" class="w-25 text-center"></td>
-                    <td >$50</td>
-
-                </tr>
-            </table>
-           <div class="container">
-               <table class="total-amount">
-                   <tr>
-                       <th>Subtotal</th>
-                       <td class="float-right">$200</td>
-                   </tr>
-                   <tr>
-                       <th>Tax</th>
-                       <td class="float-right">$5.00</td>
-                   </tr>
-                   <tr>
-                       <th>Total</th>
-                       <td class="float-right">$250.00</td>
-                   </tr>
-               </table>
-           </div>
+            <div class="row">
+              <div class="col-lg-12 col-12 p-0 table-responsive">
+                <table class=" table">
+                    <tr class="bg-warning text-center class=" text-center">
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                    <tr>
+                        <td class=" ">
+                            <div class="container d-flex flex-wrap flex-column ">
+                                <img src="images/product-1.jpg" alt="" class="img-fluid my-3  "
+                                    style="width: 100px; height: 100px;">
+                                <p>Red printed T-shirt</p>
+                                <small>₹ 150.00</small>
+                                <a href="">Remove</a>
+                            </div>
+                        </td>
+                        <td> 
+                            <ul class="pagination set-quantity my-5">
+                                <li class="page-item"><button onclick="decrease( 'input-text','itemvalue')" type="button" class="page-link"><i class="fas fa-minus"></i></button></li>
+                                <li class="page-item"><input type="text" style="width: 77px;" class=" text-center form-control" value="1" id="input-text" name=""></li>
+                                <li class="page-item"><button onclick="increase('input-text','itemvalue')" type="button" class="page-link"><i class="fas fa-plus"></i></button></li>
+                            
+                              </ul>
+                        </td>
+                        <td><h3>₹<span id="itemvalue"> 150.00</span> </h3> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="container d-flex flex-wrap flex-column">
+                                <img src="images/product-2.jpg" alt="" class="img-fluid my-3"
+                                    style="width: 100px; height: 100px;">
+                                <p>Red printed T-shirt</p>
+                                <small>₹ 250.00</small>
+                                <a href="">Remove</a>
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="pagination set-quantity my-5">
+                                <li class="page-item"><button onclick="decrease('input-text1','itemvalue1')" type="button" class="page-link"><i class="fas fa-minus"></i></button></li>
+                                <li class="page-item"><input type="text" style="width: 77px;" class=" text-center form-control" value="1" id="input-text1" name=""></li>
+                                <li class="page-item"><button onclick="increase('input-text1','itemvalue1')" type="button" class="page-link"><i class="fas fa-plus"></i></button></li>
+                            
+                              </ul>
+                        </td>
+                        <td><h3>₹<span id="itemvalue1"> 250.00</span> </h3></td>
+    
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="container d-flex flex-wrap flex-column">
+                                <img src="images/product-3.jpg" alt="" class="img-fluid my-3"
+                                    style="width: 100px; height: 100px;">
+                                <p>Red printed T-shirt</p>
+                                <small>₹ 150.00</small>
+                                <a href="">Remove</a>
+                            </div>
+                        </td>
+                        <td>
+                            <ul class="pagination set-quantity my-5">
+                                <li class="page-item"><button onclick="decrease('input-text2' ,'itemvalue2')" type="button" class="page-link"><i class="fas fa-minus"></i></button></li>
+                                <li class="page-item"><input type="text" style="width: 77px;" class=" text-center form-control" value="1" id="input-text2" name=""></li>
+                                <li class="page-item"><button onclick="increase('input-text2','itemvalue2')" type="button" class="page-link"><i class="fas fa-plus"></i></button></li>
+                            
+                              </ul>
+                        </td>
+                        <td><h3>₹<span id="itemvalue2"> 150.00</span> </h3></td>
+    
+                    </tr>
+                </table>
+              </div>
+            </div>
+          
+            <div class="container">
+                <table class="total-amount">
+                    <tr>
+                        <th>Subtotal</th>
+                        <td class="float-right"><p>₹<span id="subtotal">550.00</span></p>  </td>
+                    </tr>
+                    <tr>
+                        <th>Tax</th>
+                        <td class="float-right"><p>₹<span id="tax_amount">50.00</span></p> </td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td class="float-right "><strong> <p >₹<span id="total_amount">600.00</span></p></strong></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
     </main>
@@ -211,6 +237,51 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script>
+          var TotalBill = document.getElementById('total_amount');
+          var TaxAmount = document.getElementById('tax_amount');
+          var  subtotal = document.getElementById('subtotal');
+          function decrease(incdec , itemval){
+              var itemvalue = document.getElementById(incdec);
+              var itemval = document.getElementById(itemval);  
+              if (itemvalue.value < 2) {
+                  itemvalue.value = 1;
+                  alert("Min quantity allowed is 1 ");
+                  itemvalue.style.background = "green";
+                  itemvalue.style.color = "white";
+              }
+
+              else{
+                  itemvalue.value = parseInt(itemvalue.value) -1;
+                  itemvalue.style.background = "white";
+                  itemvalue.style.color = "black";
+                  itemval.innerHTML = parseInt(itemval.innerHTML) - 150;
+                  subtotal.innerHTML = parseInt(subtotal.innerHTML) - 150;
+                  TotalBill.innerHTML = parseInt(subtotal.innerHTML) + parseInt(TaxAmount.innerHTML);
+              }
+          }
+
+          function increase(incdec , itemval){
+            var itemvalue = document.getElementById(incdec);
+            var itemval = document.getElementById(itemval);  
+              if (itemvalue.value > 10) {
+                  alert("Max quantity allowed is 10 ");
+                  itemvalue.style.background = "red";
+                  itemvalue.style.color = "white";
+                  itemvalue.value = 10;
+              }
+
+              else{
+                  itemvalue.value = parseInt(itemvalue.value) + 1;
+                  itemvalue.style.background = "white";
+                  itemvalue.style.color = "black";
+                  itemval.innerHTML = parseInt(itemval.innerHTML) + 150;
+                  subtotal.innerHTML = parseInt(subtotal.innerHTML) + 150;
+                  TotalBill.innerHTML = parseInt(subtotal.innerHTML) + parseInt(TaxAmount.innerHTML);
+              }
+          }
+          
+        </script>
 </body>
 
 </html>
