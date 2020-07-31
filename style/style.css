@@ -175,6 +175,23 @@ html{
         border-top: 2px solid red!important;
         width: 90% !important;
     }
+    .set-quantity{
+        position: relative;
+    }
+    .set-quantity::after{
+        content: "(Note , 1 piece required)";
+        width: auto;
+        height: auto;
+        text-align: center;
+        position: absolute;
+        bottom:-20px;
+        left: 12px;
+        color: gray;
+        font-size: 0.8rem;
+    }
+    .page-link:focus{
+        box-shadow: none;
+    }
 /** beats section*/
 .welcome{
     background: url('  https://images.pexels.com/photos/1037996/pexels-photo-1037996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1300 ');
@@ -294,4 +311,6 @@ html{
      .sub-heading{
     font-size: 16px;
     }   
+
+
  }
