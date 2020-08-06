@@ -119,7 +119,7 @@ html{
 
      /*  featured products */
      #featured-product div:hover{
-         transform: translateY(-13px);
+        
          transition: 0.4s;
      }
      #featured-product div img{
