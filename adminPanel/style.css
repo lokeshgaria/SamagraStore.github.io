@@ -3,6 +3,50 @@ body{
 	font-family: sans-serif;
   margin-top: 50px;
 }
+
+#msgPara{
+  background: #343a40;
+  color: white;
+  width: auto;
+  padding: 3px 7px;
+  border-radius: 6px;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  display: none;
+  z-index: 3;
+}
+#msg{
+  background: #343a40;
+  color: white;
+  width: auto;
+  padding: 3px 7px;
+  border-radius: 6px;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  display: none;
+}
+#msgActive{
+  background: #343a40;
+  color: white;
+  width: auto;
+  padding: 3px 7px;
+  border-radius: 6px;
+  position: fixed;
+  top: 90%;
+  
+  left: 50%;
+  display: none; 
+}
+.status{
+  cursor: pointer;
+  margin: auto;
+  width: 97px;
+    text-transform: capitalize;
+    padding: 3px 0px;
+    border-radius: 25px;
+}
 .profile-main{
     width: 83%;
     position: relative;
@@ -513,6 +557,7 @@ background-color: #f44336;
 border-radius: 7px;
 box-shadow: 2px 5px 10px #111;
 transition: all .3s;
+display: inline-block;
 }
 .current:hover{
 background-color: #f66436;
@@ -555,6 +600,16 @@ transform: translateY(-2px);
 /* task list*/
 .task-border{
     border-left: 3px solid #f66436;
+}
+
+ 
+/*categoryTable*/
+#userTable{
+  display: none;
+}
+/*categoryTable*/
+#productTable{
+  display: none;
 }
 @media (max-width:760px){
     .sidebar{

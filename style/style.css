@@ -15,6 +15,20 @@ html{
     --sofia:"Sofia",cursive;
 }
  
+ #insertMsg{
+    background: #343a40;s
+    width: auto;
+    color: white;
+    display: inline-block;
+    position: fixed;
+    top: 65%;
+    left: 48%;
+    display: none;
+    border-radius: 5px;
+    padding: 3px 23px;
+    margin: 0px 7px;
+}
+ }
 
 .primary-color{
     color : var(--primary-color);
@@ -123,9 +137,9 @@ html{
          transition: 0.4s;
      }
      #featured-product div img{
-        -webkit-box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
+        /*-webkit-box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
         -moz-box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
-        box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
+        box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);*/
      }
     
     /* offer color */
@@ -143,28 +157,8 @@ html{
        }
        
 
-    /* testimonial */
-    .feedback{
-        text-align: center;
-        
-    }
-    .feedback img{
-     width: 50px;
-     border-radius: 45px;
-    
-    }
-    .feedback h3{
-        font-size: 14px;
-        font-weight: bolder;
-    }
-    .feedback p{
-        font-family: var(--sofia);
-        padding: 2% 5%;
-    }
-    .feedback div:hover{
-        transform: translateY(-13px);
-        transition: 0.4s;
-    }
+    /* about us  */
+      
     
       
     /*Total amount */
