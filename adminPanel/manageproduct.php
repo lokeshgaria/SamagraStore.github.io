@@ -1,6 +1,19 @@
  <?php
-
     include "includes/headers.php";
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $selectData = mysqli_query($conn, "select * from product where id='$id'");
+        $count = mysqli_num_rows($selectData);
+        if ($count > 0) {
+            $getData = mysqli_fetch_assoc($selectData);
+        } else { ?>
+         <script>
+             window.location.replace('http://localhost/SamagraStore.github.io/adminPanel/admin.php');
+         </script>
+ <?php    }
+    }
+
     ?>
 
  <!-- cards ends here -->
@@ -21,11 +34,19 @@
                                      <div class="form-group ">
                                          <label for="exampleInputEmail1"> Select Category</label>
                                          <select name="categories_id" class="form-control" id="Selectcategory">
-                                             <option value="">Select Category</option>
+                                             <option value="">select category </option>
                                              <?php
                                                 $selectCat = mysqli_query($conn, "select * from categories where status='active'");
-                                                while ($dataCat = mysqli_fetch_assoc($selectCat)) { ?>
-                                                 <option value="<?php echo $dataCat['id']; ?>"><?php echo $dataCat['categories']; ?></option>
+
+                                                while ($dataCat = mysqli_fetch_assoc($selectCat)) {
+                                                    if ($getData['categories_id'] == $dataCat['id']) { ?>
+                                                     <option selected value="<?php  ?>"><?php echo $dataCat['categories']; ?></option>
+
+                                                 <?php } else { ?>
+                                                     <option value="<?php  ?>"><?php echo $dataCat['categories']; ?></option>
+                                                 <?php }
+                                                    ?>
+
                                              <?php } ?>
                                          </select>
                                      </div>
@@ -33,7 +54,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group ">
                                          <label for="exampleInputEmail1"> Name of Product</label>
-                                         <input type="text" class="form-control" name="name" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required value=" ">
+                                         <input type="text" class="form-control" name="name" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required value="<?php echo $getData['name']; ?>">
 
                                      </div>
                                  </div>
@@ -43,13 +64,13 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for=""> MRP</label>
-                                         <input type="text" class="form-control" name="mrp" aria-describedby="emailHelp" id="mrp" placeholder="  Enter MRP" required value=" ">
+                                         <input type="text" class="form-control" name="mrp" aria-describedby="emailHelp" id="mrp" placeholder="  Enter MRP" required value="<?php echo $getData['mrp']; ?>">
                                      </div>
                                  </div>
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Price oF Product</label>
-                                         <input type="text" class="form-control" name="price" aria-describedby="emailHelp" id="price" placeholder="  Enter Price" value=" ">
+                                         <input type="text" class="form-control" name="price" aria-describedby="emailHelp" id="price" placeholder="  Enter Price" value="<?php echo $getData['price']; ?>">
                                      </div>
                                  </div>
 
@@ -58,7 +79,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Quantity</label>
-                                         <input type="text" class="form-control" name="qty" aria-describedby="emailHelp" id="qty" placeholder="  Enter Quantity" required value=" ">
+                                         <input type="text" class="form-control" name="qty" aria-describedby="emailHelp" id="qty" placeholder="  Enter Quantity" required value="<?php echo $getData['qty']; ?> ">
 
                                      </div>
                                  </div>
@@ -66,7 +87,7 @@
 
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Image</label>
-                                         <input type="file" class="form-control" name="image" aria-describedby="emailHelp">
+                                         <input type="file" class="form-control" name="image" aria-describedby="emailHelp" value="<?php echo $getData['img']; ?>">
 
 
                                      </div>
@@ -78,14 +99,14 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Short Desc</label>
-                                         <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description" value=""> </textarea>
+                                         <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description"><?php echo $getData['short_desc']; ?> </textarea>
 
                                      </div>
                                  </div>
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1">Description</label>
-                                         <textarea class="form-control" id="description" name=" description" placeholder="Enter product  description" required> </textarea>
+                                         <textarea class="form-control" id="description" name=" description" placeholder="Enter product  description" required><?php echo $getData['description']; ?> </textarea>
 
                                      </div>
                                  </div>
@@ -95,14 +116,14 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1">Meta_Title</label>
-                                         <textarea class="form-control" id="meta_title" name="meta_title" placeholder="Enter product Meta Title" placeholder="Meta Title"></textarea>
+                                         <textarea class="form-control" id="meta_title" name="meta_title" placeholder="Enter product Meta Title" placeholder="Meta Title" value=""><?php echo $getData['meta_title']; ?></textarea>
 
                                      </div>
                                  </div>
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1">Meta Description</label>
-                                         <textarea class="form-control" id="metaDesc" name="meta_desc" placeholder="Enter product Meta Description" placeholder="Meta Title"> </textarea>
+                                         <textarea class="form-control" id="metaDesc" name="meta_desc" placeholder="Enter product Meta Description" placeholder="Meta Title" value=""><?php echo $getData['meta_desc']; ?></textarea>
 
 
                                      </div>
@@ -113,7 +134,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1">Meta keyword</label>
-                                         <textarea class="form-control" id="metaKeyword" name="meta_keyword" placeholder="Enter  Meta keyword Description" placeholder="Meta Title" value=""> </textarea>
+                                         <textarea class="form-control" id="metaKeyword" name="meta_keyword" placeholder="Enter  Meta keyword Description" placeholder="Meta Title" value=""><?php echo $getData['meta_keyword']; ?></textarea>
 
 
                                      </div>
