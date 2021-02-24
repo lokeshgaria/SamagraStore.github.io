@@ -69,7 +69,15 @@ if(isset($_GET['id'])){
                     setTimeout(() => {
                         $('#msg').fadeOut(1000); 
                     },1000); 
-                 }else{
+                 }
+                 else if(data==22){
+                    $('#msg').text("Category Already Exist");
+                    $('#msg').fadeIn(1000);     
+                    setTimeout(() => {
+                        $('#msg').fadeOut(1000); 
+                    },1000); 
+                 }
+                 else{
                     $('#msg').text("Fill input field");
                     $('#msg').fadeIn(1000);     
                     setTimeout(() => {

@@ -31,7 +31,7 @@
            var value = $(this).text();
            var id = $(this).attr("id");
            var element = $(this);
-           console.log(value+" "+id)
+           console.log(value+" "+id+" "+element)
           $.ajax({
               url  : "active.php",
               type : "POST",

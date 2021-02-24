@@ -34,7 +34,7 @@ if (isset($_GET['type'])) {
 }
 
 
-  
+include 'functions.php';
 ?>
 
 <!doctype html>

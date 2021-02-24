@@ -22,12 +22,16 @@ $id = $_POST['id'];
 if (!empty($category)&& !empty($id)) {
     $category = $_POST['cat'];    
     $id=$_POST['id'];
-$runQry = mysqli_query($conn,"update categories set categories ='$category' where id=$id");
-if($runQry){
-    echo 1;
-}else{
-    echo 0;
-}
+
+  
+        $runQry = mysqli_query($conn,"update categories set categories ='$category' where id=$id");
+        if($runQry){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    
+
 }else{
     echo 33;
 }

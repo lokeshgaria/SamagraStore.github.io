@@ -59,14 +59,14 @@
 
                             </table>
                         </div>
-                        <p id="msgActive" class="text-capitalize"> </p>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>    
-
+<p id="msgActive" class="text-capitalize"> </p>
 <!--Product table--->
 <section>
     
@@ -98,12 +98,15 @@
                             
                             <?php  
                             
-                            $sql = "select  product .* , categories.categories from product , categories where  product.categories_id=categories.id order by product.id ";
+                            $sql = "select  product .* , categories.categories from product , categories where  product.categories_id=categories.id  ";
                               
                             $res = mysqli_query($conn, $sql);
                              $i = 0;
                             while ($data = mysqli_fetch_assoc($res)){ 
-                                $i++;  ?>
+                                $i++; 
+                              
+                                
+                                ?>
                                 <tr class="font-weight-bold">
                                    
                                     <td> <?php echo  $i; ?></td>
@@ -116,15 +119,18 @@
                                     
                                     <td><?php   echo $data['description'] ?></td>
                                      
-                                    <td class="d-flex justify-content-center"><?php  if ( $data['status']==1) {
-                                        echo "<a href='?type=status&operation=deactive&id=".$data['id']."' class='text-dark nav-link'>Active</a>";
-                                       
-                                    }  else {
-                                        echo "<a href='?type=status&operation=active&id=".$data['id']."' class='nav-link text-dark'>Deactive</a>";
 
-                                   } echo "<a href='?type=delete&id=".$data['id']."' class='nav-link text-white mx-2 btn-danger '><i class='fas fa-trash-alt'></i></a>";
+                                    <td class="d-flex justify-content-center"><?php  
+                                    
+                                    if ($data['status']=='active') {
+                                         echo "<span key=".$data['id']." class='bg-primary productStatusActive text-capitalize text-white '>".$data['status']."</span>";
+                                    }else{
+                                        echo "<span key=".$data['id']." class='bg-secondary productStatusActive text-capitalize text-white ' >".$data['status']."</span>";
+                                     }
 
-                                   echo "<a href='manageproduct.php?id=".$data['id']."' class='nav-link text-white btn btn-warning '><i class='fas fa-edit'></i></a>";
+                                    echo "<a href='?type=delete&id=".$data['id']."' class='nav-link text-white mx-2 btn-danger '><i class='fas fa-trash-alt'></i></a>";
+
+                                    echo "<a href='manageproduct.php?id=".$data['id']."' class='nav-link text-white btn btn-warning '><i class='fas fa-edit'></i></a>";
                                    ?></td>
                                     
                                 </tr>
@@ -194,6 +200,105 @@
             </div>
         </div>
 </section>
+<!-- contact Us -->
+<section>
+<div class="container-fluid " id="contactTable">
+            
+            <div class="row ">
+            
+                <div class=" col-xl-10 col-lg-9  col-md-8 ml-md-auto">
+                    <div class="bg-light" >
+                     <div class="container">
+                     <h3 class="mx-2 py-3 font-weight-bold text-capitalize text-dark"> Customer's feedback Table</h3>
+                        <div class="col-12 " >
+                             <table class="table bg-light table-hover text-center  ">
+                                <thead>
+                                    <tr class="text-warning bg-dark">
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>NAME</th>
+                                        <th>E-MAIL</th>
+                                        <th></th>
+                                        <th> MESSAGE</th>
+                                        
+                                        <th>OPERATION</th>
+                                    </tr>
+                                </thead>
+                                <?php 
+                                $sql = "select * from  contactus order by id desc ";
+                                $run = mysqli_query($conn , $sql);
+                                
+                                
+                                while ($fetch = mysqli_fetch_assoc($run)
+                                ) {?>
+                                
+                                 <tbody>
+                                    <tr>
+                                        <th>1</th>
+                                        <td><?php  echo $fetch['id']; ?></td>
+                                        <td> <?php  echo $fetch['name']; ?></td>
+                                        <td> <?php  echo $fetch['email']; ?></td>
+                                        <td> <?php  echo $fetch['mobile']; ?></td>
+                                        <td> <?php  echo $fetch['comment']; ?></td>
+                                        
+                                        <td> <a href="deletecon.php?id=<?php echo $fetch['id']; ?>" class="btn btn-danger" name="delete">Delete</a></td>
+                                        
+                                    </tr>
+                                     
+                                     
+                                </tbody>
+                                <?php
+                                }
+                                ?>
+                               
+                            </table>
+                           
+                        </div>
+                    </div>
+                    </div>
+</section>
 
 <?php include "includes/footer.inc.php"; ?>
- 
+<script>
+    $(document).ready(function  () {
+        $('.productStatusActive').on("click" , function  () {
+            var element = $(this);
+            var key = $(this).attr("key");
+            var value = $(this).text();
+           
+            console.log(element+' '+ key + ' '+ value );
+
+            $.ajax({
+               url : "changeProductStatus.php",
+               type : "POST",
+               data : {
+                   key : key,
+                   value : value
+               },
+               success : function  (data) {
+                   if(data==2){
+                       element.text("active");
+                       element.addClass("bg-primary");
+                       element.removeClass("bg-secondary");
+                      $('#msgActive').text("Activated");
+                      $('#msgActive').fadeIn(1000);
+                      setTimeout(function  () {
+                          $('#msgActive').fadeOut(1000);
+                      },1000); 
+                   }
+                   if(data==1){
+                       element.text("deactive");
+                       element.addClass("bg-secondary");
+                       element.removeClass("bg-primary");
+                      $('#msgActive').text("Deactivated");
+                      $('#msgActive').fadeIn(1000);
+                      
+                      setTimeout(function  () {
+                          $('#msgActive').fadeOut(1000);
+                      },1000); 
+                   }
+               }
+            });
+        })
+    });
+</script> 

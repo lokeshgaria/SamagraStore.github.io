@@ -18,13 +18,20 @@ else {
 }
 $category = $_POST['cat'];
 if (!empty($category)) {
-    $category = $_POST['cat'];    
-$runQry = mysqli_query($conn,"INSERT INTO `categories` (`id`, `categories`, `status`) VALUES (NULL, '$category', 'active')");
-if($runQry){
-    echo 1;
-}else{
-    echo 0;
-}
+    $category = $_POST['cat'];  
+    $checkCat = mysqli_query($conn,"select * from categories where categories = '$category'");
+    $count = mysqli_num_rows($checkCat);
+    if ($count>0) {
+        echo 22;
+    }else{
+        $runQry = mysqli_query($conn,"INSERT INTO `categories` (`id`, `categories`, `status`) VALUES (NULL, '$category', 'active')");
+        if($runQry){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }  
+
 }else{
     echo 33;
 }
