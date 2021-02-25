@@ -10,7 +10,7 @@
     $meta_keyword = "";
     $description = "";
     $short_desc = "";
-
+    $id ="";
     include "includes/headers.php";
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -80,7 +80,8 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group ">
                                          <label for="exampleInputEmail1"> Name of Product</label>
-                                         <input type="text" class="form-control" name="name" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required <?php echo "$attr = $name"; ?>>
+                                         <input type="text" class="form-control" name="name" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required <?php echo "$attr = $name "; ?>>
+                                         <input type="hidden" name="id" id="updateId" value="<?php echo $id; ?>">
 
                                      </div>
                                  </div>
@@ -96,7 +97,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Price oF Product</label>
-                                         <input type="text" class="form-control" name="price" aria-describedby="emailHelp" id="price" placeholder="  Enter Price" <?php echo "$attr = $price" ?>">
+                                         <input type="text" class="form-control" name="price" aria-describedby="emailHelp" id="price" placeholder="  Enter Price" <?php echo "$attr = $price" ?>>
                                      </div>
                                  </div>
                              </div>
@@ -104,7 +105,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group">
                                          <label for="exampleInputEmail1"> Quantity</label>
-                                         <input type="text" class="form-control" name="qty" aria-describedby="emailHelp" id="qty" placeholder="  Enter Quantity" required <?php echo "$attr =  $qty" ?> ">
+                                         <input type="text" class="form-control" name="qty" aria-describedby="emailHelp" id="qty" placeholder="  Enter Quantity" required <?php echo "$attr =  $qty" ?>>
 
                                      </div>
                                  </div>
@@ -124,7 +125,7 @@
                                      <div class="col-lg-6 col-12">
                                          <div class="form-group">
                                              <label for="exampleInputEmail1"> Short Desc</label>
-                                             <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description"><?php echo "  $short_desc" ?> </textarea>
+                                             <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description"><?php echo "$short_desc" ?> </textarea>
 
                                          </div>
                                      </div>
@@ -174,92 +175,93 @@
                                  <p id="msgPara" class="text-capitalize">hello </p>
                          </form>
                      </div>
-
-
                  </div>
-                 <?php include "includes/footer.inc.php"; ?>
-                 <script>
-                     $(document).ready(function() {
-                         //add new product to database 
-                         $('#addproduct').on("click", function() {
-                             $('#productForm').submit(function(e) {
-                                 e.preventDefault();
-                             });
-                             var productName = $('#productName').val();
-                             var Selectcategory = $('#Selectcategory').val();
-                             var mrp = $('#mrp').val();
-                             var price = $('#price').val();
-                             var qty = $('#qty').val();
-                             var shortDesc = $('#shortDesc').val();
-                             var description = $('#description').val();
-                             var meta_title = $('#meta_title').val();
-                             var metaDesc = $('#metaDesc').val();
-                             var metaKeyword = $('#metaKeyword').val();
-                             var id = "<?php echo $id; ?>";
-                             console.log(productName + " " + Selectcategory + " " + mrp + " " + price + " " + qty + " " + shortDesc + " " + description + " " + meta_title + " " + metaDesc + " " + metaKeyword);
+             </div>
+         </div>
+     </div>
+     <?php include "includes/footer.inc.php"; ?>
+     <script>
+         $(document).ready(function() {
+             //add new product to database 
+             $('#addproduct').on("click", function() {
+                 $('#productForm').submit(function(e) {
+                     e.preventDefault();
+                 });
+                 var productName = $('#productName').val();
+                 var Selectcategory = $('#Selectcategory').val();
+                 var mrp = $('#mrp').val();
+                 var price = $('#price').val();
+                 var qty = $('#qty').val();
+                 var shortDesc = $('#shortDesc').val();
+                 var description = $('#description').val();
+                 var meta_title = $('#meta_title').val();
+                 var metaDesc = $('#metaDesc').val();
+                 var metaKeyword = $('#metaKeyword').val();
+                 var id = $("#updateId").val();
+                 console.log(productName + " " + Selectcategory + " " + mrp + " " + price + " " + qty + " " + shortDesc + " " + description + " " + meta_title + " " + metaDesc + " " + metaKeyword);
 
-                             if (productName == "" || Selectcategory == "" || mrp == "" || price == "" || qty == "" || shortDesc == "" || description == "" || meta_title == "" || metaDesc == "" || metaKeyword == "") {
+                 if (productName == "" || Selectcategory == "" || mrp == "" || price == "" || qty == "" || shortDesc == "" || description == "" || meta_title == "" || metaDesc == "" || metaKeyword == "") {
+                     $('#msgPara').text("Fill All details ");
+                     $('#msgPara').fadeIn(1000);
+                     setTimeout(() => {
+                         $('#msgPara').fadeOut(1000);
+                     }, 2000);
+                 } else {
+                     $.ajax({
+                         url: "addProduct.php",
+                         type: "POST",
+                         data: {
+                             pname: productName,
+                             id: id,
+                             category: Selectcategory,
+                             mrp: mrp,
+                             price: price,
+                             qty: qty,
+                             shortDesc: shortDesc,
+                             description: description,
+                             meta_title: meta_title,
+                             metaDesc: metaDesc,
+                             metaKeyword: metaKeyword
+                         },
+                         success: function(data) {
+                             if (data == 1) {
+                                 $('#msgPara').text("Product added to database");
+                                 $('#msgPara').fadeIn(1000);
+                                 setTimeout(() => {
+                                     $('#msgPara').fadeOut(1000);
+                                 }, 2000);
+                             } else if (data == 0) {
+                                 $('#msgPara').text("Product Not added to database");
+                                 $('#msgPara').fadeIn(1000);
+                                 setTimeout(() => {
+                                     $('#msgPara').fadeOut(1000);
+                                 }, 2000);
+                             } else if (data == 3) {
+                                 $('#msgPara').text("Product Updated Successfully");
+                                 $('#msgPara').fadeIn(1000);
+                                 setTimeout(() => {
+                                     $('#msgPara').fadeOut(1000);
+                                 }, 2000);
+                             } else if (data == 4) {
+                                 $('#msgPara').text("Product not Updated ");
+                                 $('#msgPara').fadeIn(1000);
+                                 setTimeout(() => {
+                                     $('#msgPara').fadeOut(1000);
+                                 }, 2000);
+                             } else if (data == 404) {
                                  $('#msgPara').text("Fill All details ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                             } else {
-                                 $.ajax({
-                                     url: "addProduct.php",
-                                     type: "POST",
-                                     data: {
-                                         pname: productName,
-                                         id: id,
-                                         category: Selectcategory,
-                                         mrp: mrp,
-                                         price: price,
-                                         qty: qty,
-                                         shortDesc: shortDesc,
-                                         description: description,
-                                         meta_title: meta_title,
-                                         metaDesc: metaDesc,
-                                         metaKeyword: metaKeyword
-                                     },
-                                     success: function(data) {
-                                         if (data == 1) {
-                                             $('#msgPara').text("Product added to database");
-                                             $('#msgPara').fadeIn(1000);
-                                             setTimeout(() => {
-                                                 $('#msgPara').fadeOut(1000);
-                                             }, 2000);
-                                         } else if (data == 0) {
-                                             $('#msgPara').text("Product Not added to database");
-                                             $('#msgPara').fadeIn(1000);
-                                             setTimeout(() => {
-                                                 $('#msgPara').fadeOut(1000);
-                                             }, 2000);
-                                         } else if (data == 3) {
-                                             $('#msgPara').text("Product Updated Successfully");
-                                             $('#msgPara').fadeIn(1000);
-                                             setTimeout(() => {
-                                                 $('#msgPara').fadeOut(1000);
-                                             }, 2000);
-                                         } else if (data == 4) {
-                                             $('#msgPara').text("Product not Updated ");
-                                             $('#msgPara').fadeIn(1000);
-                                             setTimeout(() => {
-                                                 $('#msgPara').fadeOut(1000);
-                                             }, 2000);
-                                         } else if (data == 404) {
-                                             $('#msgPara').text("Fill All details ");
-                                             $('#msgPara').fadeIn(1000);
-                                             setTimeout(() => {
-                                                 $('#msgPara').fadeOut(1000);
-                                             }, 2000);
-                                         }
-                                     }
-                                 })
                              }
+                         }
+                     })
+                 }
 
-                         })
+             })
 
-                         //update new Product to database
+             //update new Product to database
 
-                     });
-                 </script>
+         });
+     </script>
