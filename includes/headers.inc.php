@@ -1,17 +1,33 @@
 <?php
 session_start();
 include "connection.inc.php";
-include "function.inc.php"; 
- 
+include "includes/function.inc.php";
 $msg = "";
-if(isset($_SESSION['username'])){
+
+
+
+if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
-}else {
-     $userName= "SignIn/Register";
+} else {
+    $userName = "SignIn/Register";
+}
+if (isset($_GET['email'])) {
+    $email = $_GET['email'];
+    $selectUserData = mysqli_query($conn, "select * from users where email ='$email'");
+    $userData = mysqli_fetch_assoc($selectUserData);
+    $username = $userData['name'];
+    $phone = $userData['mobile'];
+    $email = $userData['email'];
+    
+    $attr ="value";
+} else {
+    $email = "";
+    $username = "";
+    $phone = "";
+    $attr = "";
 }
 
 
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +37,10 @@ if(isset($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://i.pinimg.com/236x/2d/96/4a/2d964a6bf37d9224d0615dc85fccdd62--shopping-cart-logo-info-graphics.jpg" type="image/x-icon">
     <title>Online Store</title>
-    
+
     <!-- jQuery cdn-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     
+
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -34,7 +50,7 @@ if(isset($_SESSION['username'])){
 
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="style/style.css">
-   
+
 
     <!-- fonts style
        font-family: 'Anton', sans-serif;
@@ -73,20 +89,20 @@ if(isset($_SESSION['username'])){
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <ul class="nav">
-                            <li ><a class=" nav-link  text-uppercase" href="index.php">Home <span class="sr-only">(current)</span></a></li>
+                            <li><a class=" nav-link  text-uppercase" href="index.php">Home <span class="sr-only">(current)</span></a></li>
 
-                             
-                            <?php 
+
+                            <?php
                             $getcatquerry = "select * from categories where status = 'active'";
                             $cat_res = mysqli_query($conn, $getcatquerry);
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
-                            <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id'];?>"><?php echo $row['categories']?></a> </li>
+                                <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?></a> </li>
                             <?php  } ?>
-                            <li ><a class="  nav-link text-uppercase" href="product.php">Products</a>
+                            <li><a class="  nav-link text-uppercase" href="product.php">Products</a>
                             </li>
-                            <li ><a class=" nav-link text-uppercase" href="#contactus">Contact us</a>
+                            <li><a class=" nav-link text-uppercase" href="#contactus">Contact us</a>
                             </li>
-                            <li  ><a class="  nav-link text-uppercase" href="#aboutus"> About us</a></li>
+                            <li><a class="  nav-link text-uppercase" href="#aboutus"> About us</a></li>
                         </ul>
                     </div>
 
@@ -104,4 +120,4 @@ if(isset($_SESSION['username'])){
             </nav>
         </div>
     </header>
-    <!-- /header ends here --> 
+    <!-- /header ends here -->

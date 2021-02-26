@@ -128,7 +128,7 @@ $loginmsg = "";
              },
              success : function  (data) {
                  if(data==1){
-                     window.location.replace("http://localhost/SamagraStore.github.io/index.php");
+                     window.location.replace("http://localhost/SamagraStore.github.io/index.php?email="+email);
                  }else{
                     $('#passMsg').text(data);
                  }

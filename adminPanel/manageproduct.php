@@ -4,7 +4,7 @@
     $name = "";
     $mrp = "";
     $price = "";
-    $qty = "";
+    $qty = ""; 
     $meta_desc = "";
     $meta_title = "";
     $meta_keyword = "";

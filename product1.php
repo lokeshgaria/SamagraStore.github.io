@@ -1,11 +1,4 @@
-<?php 
-require 'function.inc.php';
  
-require 'connection.inc.php';
- 
-$product_id =mysqli_real_escape_string($conn , $_GET['id']);
-$get_product=get_product($conn,'','', $product_id);
- ?>
  
  
 <!DOCTYPE html>
