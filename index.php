@@ -35,7 +35,7 @@ include "includes/headers.inc.php";
             foreach ($productData as  $value) {  ?>
 
                 <div class="col-lg-3 col-sm-3 text-center col-6">
-                   <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>  
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
                     <div>
                         <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
@@ -186,55 +186,66 @@ include "includes/headers.inc.php";
     </div>
     <!-- Brands ends start here -->
 
-<!--contact us -->
+    <!--contact us -->
     <div class="container-fluid bg-light font-sofia primary-color py-5 " id="contactus">
-        <form class="" action="index.php" method="post">
+    <h2 class="font-weight-bold">Contact Us </h2>
+                        <hr>
+        <div class="row">
 
-            <div class="form-group px-5 py-5 ">
-                <h2 class="font-weight-bold">Contact Us </h2>
-                <hr>
+            <div class="col-lg-6">
+             <div class="container">
+             <iframe class="m-0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13993.025392856549!2d77.1370109!3d28.7417623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1614342549969!5m2!1sen!2sin" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+             </div>
+          
+            </div>
+            <div class="col-lg-6">
+                <form class="w-75" action="index.php" method="post">
 
-                <!-- first row -->
-                <div class="row  ">
-                    <div class="col-lg-12 col-12">
-                        <input type="text" name="newname" class="form-control" id=""  placeholder="Enter Your Name" value="<?php echo  $attr = "$username" ;?>">
+                    <div class="form-group ">
+                       <!-- first row -->
+                       <div class="row  ">
+                            <div class="col-lg-12 col-12">
+                                <input type="text" name="newname" class="form-control" id="" placeholder="Enter Your Name" value="<?php echo  $attr = "$username"; ?>">
+
+                            </div>
+                            <div class="col-lg-12 col-12 my-2">
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" value="<?php echo $attr = "$email";  ?>">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                    else.</small>
+                            </div>
+                        </div>
+                        <!-- second row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-12">
+                                <input type="text" class="form-control" id="" name="phone" aria-describedby="emailHelp" placeholder="Contact Number" value="<?php echo  $attr = "$phone"; ?>">
+
+                            </div>
+                            <div class="col-lg-12 col-12 my-3">
+                                <h5 class="text-capitalize">any suggestions for us?</h5>
+                                <textarea name="comment" class="form-control" id="" cols="200" name="comment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <!-- third row -->
+                        <div class="row">
+
+                            <div class="col-lg-12 col-12">
+                                <button type="submit" class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " style=" letter-spacing: 5px; " name="submit">Submit</button>
+                            </div>
+                        </div>
+
 
                     </div>
-                    <div class="col-lg-12 col-12 my-2">
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" value="<?php echo $attr = "$email";  ?>">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                            else.</small>
-                    </div>
-                </div>
-                <!-- second row -->
-                <div class="row">
-                    <div class="col-lg-12 col-12">
-                        <input type="text" class="form-control" id="" name="phone" aria-describedby="emailHelp" placeholder="Contact Number" value="<?php echo  $attr = "$phone"; ?>">
-
-                    </div>
-                    <div class="col-lg-12 col-12 my-3">
-                        <h5 class="text-capitalize">any suggestions for us?</h5>
-                        <textarea name="comment" class="form-control" id="" cols="200" name="comment" rows="5"></textarea>
-                    </div>
-                </div>
-                <!-- third row -->
-                <div class="row">
-                   
-                    <div class="col-lg-12 col-12">
-                        <button type="submit" class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " style=" letter-spacing: 5px; " name="submit">Submit</button>
-                    </div>
-                </div>
 
 
+
+                </form>
             </div>
 
+        </div>
 
-
-        </form>
     </div>
 </main>
 
 <?php
 include "includes/footer.inc.php";
 ?>
- 
