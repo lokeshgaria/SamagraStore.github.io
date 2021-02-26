@@ -10,7 +10,7 @@
     $meta_keyword = "";
     $description = "";
     $short_desc = "";
-    $id ="";
+    $id = "";
     include "includes/headers.php";
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
@@ -80,7 +80,7 @@
                                  <div class="col-lg-6 col-12">
                                      <div class="form-group ">
                                          <label for="exampleInputEmail1"> Name of Product</label>
-                                         <input type="text" class="form-control" name="name" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required <?php echo "$attr = $name "; ?>>
+                                         <input type="text" class="form-control" name="pname" aria-describedby="emailHelp" id="productName" placeholder="  Enter Product Name" required <?php echo "$attr = $name "; ?>>
                                          <input type="hidden" name="id" id="updateId" value="<?php echo $id; ?>">
 
                                      </div>
@@ -110,69 +110,73 @@
                                      </div>
                                  </div>
                                  <div class=" col-lg-6 col-12">
+                                     <label for="exampleInputEmail1"> Image <span class="text-info" style="font-size: 12px;margin: 0 10px;"> Allowed type : JPEG , PNG , JPG Only.</span></label>
 
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1"> Image</label>
-                                             <input type="file" class="form-control" name="image" aria-describedby="emailHelp" value="<?php echo $getData['img']; ?>">
-
-
+                                     <div class="row">
+                                         <div class="form-group  col-lg-6 w-100">
+                                             <input type="file" class="form-control" name="image" id="image" aria-describedby="emailHelp" value="<?php echo $getData['img']; ?>">
                                          </div>
+                                         <div class="form-group col-lg-6 w-100" id="previewImg">
+                                             <img src="<?php echo $getData['img']; ?>" alt="" class="img-fluid" width="50px" height="44px">
+                                         </div>
+                                     </div>
+
+
+                                 </div>
+                             </div>
+
+                             <div class="row">
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1"> Short Desc</label>
+                                         <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description"><?php echo "$short_desc" ?> </textarea>
 
                                      </div>
                                  </div>
-
-                                 <div class="row">
-                                     <div class="col-lg-6 col-12">
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1"> Short Desc</label>
-                                             <textarea class="form-control" id="shortDesc" name="short_desc" placeholder="Enter product short description"><?php echo "$short_desc" ?> </textarea>
-
-                                         </div>
-                                     </div>
-                                     <div class="col-lg-6 col-12">
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1">Description</label>
-                                             <textarea class="form-control " id="description" name=" description" placeholder="Enter product  description" required><?php echo "  $description " ?> </textarea>
-
-                                         </div>
-                                     </div>
-                                 </div>
-
-                                 <div class="row">
-                                     <div class="col-lg-6 col-12">
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1">Meta_Title</label>
-                                             <textarea class="form-control" id="meta_title" name="meta_title" placeholder="Enter product Meta Title" placeholder="Meta Title"><?php echo " $meta_title " ?></textarea>
-
-                                         </div>
-                                     </div>
-                                     <div class="col-lg-6 col-12">
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1">Meta Description</label>
-                                             <textarea class="form-control" id="metaDesc" name="meta_desc" placeholder="Enter product Meta Description" placeholder="Meta Title"><?php echo "  $meta_desc " ?></textarea>
-
-
-                                         </div>
-                                     </div>
-                                 </div>
-
-                                 <div class="row">
-                                     <div class="col-lg-6 col-12">
-                                         <div class="form-group">
-                                             <label for="exampleInputEmail1">Meta keyword</label>
-                                             <textarea class="form-control" id="metaKeyword" name="meta_keyword" placeholder="Enter  Meta keyword Description" placeholder="Meta Title"><?php echo "$meta_keyword " ?></textarea>
-
-
-                                         </div>
-                                     </div>
-                                     <div class="col-lg-6 col-12">
-                                         <h6 class="text-danger text-capitalize font-weight-bold"> </h6>
-                                         <h6> <?php echo $btnName; ?> </h6>
-                                         <button name="submit" id="addproduct" class="btn text-uppercase font-weight-bold btn-primary  w-100" style=" letter-spacing: 5px; padding:15px 0;"><?php echo $btnName; ?></button>
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1">Description</label>
+                                         <textarea class="form-control " id="description" name="description" placeholder="Enter product  description" required><?php echo "  $description " ?> </textarea>
 
                                      </div>
                                  </div>
-                                 <p id="msgPara" class="text-capitalize">hello </p>
+                             </div>
+
+                             <div class="row">
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1">Meta_Title</label>
+                                         <textarea class="form-control" id="meta_title" name="meta_title" placeholder="Enter product Meta Title" placeholder="Meta Title"><?php echo " $meta_title " ?></textarea>
+
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1">Meta Description</label>
+                                         <textarea class="form-control" id="metaDesc" name="meta_desc" placeholder="Enter product Meta Description" placeholder="Meta Title"><?php echo "  $meta_desc " ?></textarea>
+
+
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class="row">
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1">Meta keyword</label>
+                                         <textarea class="form-control" id="metaKeyword" name="meta_keyword" placeholder="Enter  Meta keyword Description" placeholder="Meta Title"><?php echo "$meta_keyword " ?></textarea>
+
+
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-6 col-12">
+                                     <h6 class="text-danger text-capitalize font-weight-bold"> </h6>
+                                     <h6> <?php echo $btnName; ?> </h6>
+                                     <button name="submit" id="addproduct" class="btn text-uppercase font-weight-bold btn-primary  w-100" style=" letter-spacing: 5px; padding:15px 0;"><?php echo $btnName; ?></button>
+
+                                 </div>
+                             </div>
+                             <p id="msgPara" class="text-capitalize">hello </p>
                          </form>
                      </div>
                  </div>
@@ -183,46 +187,27 @@
      <script>
          $(document).ready(function() {
              //add new product to database 
+
              $('#addproduct').on("click", function() {
                  $('#productForm').submit(function(e) {
                      e.preventDefault();
-                 });
-                 var productName = $('#productName').val();
-                 var Selectcategory = $('#Selectcategory').val();
-                 var mrp = $('#mrp').val();
-                 var price = $('#price').val();
-                 var qty = $('#qty').val();
-                 var shortDesc = $('#shortDesc').val();
-                 var description = $('#description').val();
-                 var meta_title = $('#meta_title').val();
-                 var metaDesc = $('#metaDesc').val();
-                 var metaKeyword = $('#metaKeyword').val();
-                 var id = $("#updateId").val();
-                 console.log(productName + " " + Selectcategory + " " + mrp + " " + price + " " + qty + " " + shortDesc + " " + description + " " + meta_title + " " + metaDesc + " " + metaKeyword);
 
-                 if (productName == "" || Selectcategory == "" || mrp == "" || price == "" || qty == "" || shortDesc == "" || description == "" || meta_title == "" || metaDesc == "" || metaKeyword == "") {
-                     $('#msgPara').text("Fill All details ");
-                     $('#msgPara').fadeIn(1000);
-                     setTimeout(() => {
-                         $('#msgPara').fadeOut(1000);
-                     }, 2000);
-                 } else {
+
+                     $('#addproduct').attr("disabled", "disabled");
+                     $('#addproduct').css({
+                         "cursor": "not-allowed",
+                         "background-color": "#969fa9",
+                         "border-color": "#606f7e"
+                     });
+
                      $.ajax({
                          url: "addProduct.php",
                          type: "POST",
-                         data: {
-                             pname: productName,
-                             id: id,
-                             category: Selectcategory,
-                             mrp: mrp,
-                             price: price,
-                             qty: qty,
-                             shortDesc: shortDesc,
-                             description: description,
-                             meta_title: meta_title,
-                             metaDesc: metaDesc,
-                             metaKeyword: metaKeyword
-                         },
+                         async: "true",
+                         data: new FormData(this),
+                         contentType: false,
+
+                         processData: false,
                          success: function(data) {
                              if (data == 1) {
                                  $('#msgPara').text("Product added to database");
@@ -230,34 +215,61 @@
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
+                                 setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
+                                  
                              } else if (data == 0) {
                                  $('#msgPara').text("Product Not added to database");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
+                                   setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
                              } else if (data == 3) {
                                  $('#msgPara').text("Product Updated Successfully");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
+                                   setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
                              } else if (data == 4) {
                                  $('#msgPara').text("Product not Updated ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
+                                   setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
                              } else if (data == 404) {
                                  $('#msgPara').text("Fill All details ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
+                                   setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
+                             } else if (data == 6) {
+                                 $('#msgPara').text("Invalid Image Selected ");
+                                 $('#msgPara').fadeIn(1000);
+                                 setTimeout(() => {
+                                     $('#msgPara').fadeOut(1000);
+                                 }, 2000);
+                                   setTimeout(function  () {
+                                    location.reload();
+                                 },3000);
                              }
                          }
+                          
+
                      })
-                 }
+                 });
 
              })
 

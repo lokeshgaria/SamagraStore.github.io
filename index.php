@@ -26,13 +26,72 @@ include "includes/headers.inc.php";
             </div>
         </div>
         <!-- first slider ends-->
-        <!-- Featured Products start here -->
+       <!-- Featured Products start here -->
+       <div class="container " id="featured-product">
+            <h3 class=" text-center my-5 border-bottom"> Featured Products</h3> 
+            <div class="row ">
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <img src="  https://rukminim1.flixcart.com/image/495/594/k7531jk0/t-shirt/z/c/a/s-rh-roundnck-x-hlfslv-blk-org-skin-rockhard-original-imafpfvkfnzcegcn.jpeg?q=50"
+                        alt="product1" class="img-fluid">
+                    <p> Mens Cotton Hooded T-Shirt</p>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <i class="far fa-star text-warning"></i>
+                        <p>₹ 291.00 - ₹ 649.00</p>
+                    </div>
 
-        <div class="container " id="featured-product">
-            <h1 class=" text-center text-capitalize my-5  "> new arrivals</h1>
-            
+                </div>
+
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <img src=" https://rukminim1.flixcart.com/image/495/594/k687wy80/kurti/a/v/w/3xl-pankhuripink-stylum-original-imafjvzfyrehhtaf.jpeg?q=50"
+                        alt="product1" class="img-fluid">
+                    <p>Women Printed Rayon Kurta</p>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <i class="far fa-star text-warning"></i>
+
+                        <p>₹650.00</p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <img src="  https://rukminim1.flixcart.com/image/495/594/k05ljm80/sweatshirt/n/7/h/l-ts914503-ghpc-original-imafkygfnuz8se3g.jpeg?q=50"
+                        class="img-fluid">
+                    <p> Men Sweatshirt </p>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <i class="far fa-star text-warning"></i>
+                        <p>₹ 490.00</p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-3 col-6">
+                    <img src=" https://rukminim1.flixcart.com/image/495/594/k55n0y80/shirt/z/3/k/m-hlsh009425-highlander-original-imafnwmzffusge6z.jpeg?q=50"
+                        class="img-fluid">
+                    <p> Men Solid Casual Shirt</p>
+                    <div class="rating">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <p>₹ 399.00</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
-
         <!-- Featured Products ends here -->
 
         <!-- Offer Product starts-->

@@ -106,13 +106,14 @@
                                 $i++; 
                               
                                 
+                             
                                 ?>
                                 <tr class="font-weight-bold">
                                    
                                     <td> <?php echo  $i; ?></td>
                                     <td><?php  echo $data['categories'] ?></td>
                                     <td><?php  echo $data['name'] ?></td>
-                                    <td> <img src="<?php echo $data['img']?>" alt="" width="150" height="50"></td>
+                                    <td> <img src="<?php echo $data['img']?>" alt="" width="50" height="43"></td>
                                     <td><?php  echo $data['mrp'] ?></td>
                                     <td><?php  echo $data['price'] ?></td>
                                     <td><?php   echo $data['qty'] ?></td>
