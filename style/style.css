@@ -220,6 +220,14 @@ html{
  left: 50%;
  transform: translate(-50% , -50%);
 }
+#cartNotification{
+    display: inline;
+    padding: 0px 5px;
+    border-radius: 18px;
+    position: relative;
+    left: -19px;
+    top: -12px;
+}
      
      /* X-Small devices (portrait phones, less than 576px)*/
      @media (max-width: 475.98px) { 

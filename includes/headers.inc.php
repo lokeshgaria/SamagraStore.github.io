@@ -113,8 +113,9 @@ if (isset($_SESSION['email'])) {
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
                     </form>
-                    <li class="nav-item border rounded-circle mx-2 search-icon">
-                        <a href="cart.php" target="_blank"><i class="fas fa-shopping-cart p-2 text-secondary"></i></a>
+                    <li class="nav-item mx-2 search-icon">
+                   
+                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id=cartNotification class="bg-danger   text-white">1</span>
                     </li>
                 </div>
             </nav>

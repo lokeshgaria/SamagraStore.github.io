@@ -29,18 +29,22 @@ $product_id = $_GET['product_id'];
 
                     <p class="my-2 font-weight-bold">Availability : in stock</p>
                     <p><span>Qty:</span>
-                        <select name="" id="">
+                        <select name="" id="qty">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
                         </select><br>
                     </p>
                 </div>
 
-                <a href="" onclick="myFunction()" class="btn btn-danger my-3 text-uppercase font-weight-bold" style="letter-spacing:1px;">Add to cart</a><br>
+                <a href="javascript:void(0)" onclick="manage_cart(<?php echo $productDetail[0]['id']; ?>,'add')" class="btn btn-danger my-3 text-uppercase font-weight-bold" style="letter-spacing:1px;">Add to cart</a><br>
                 <h3 class="my-3">Product Description <i class="fas  fa-indent" class="float-right"></i></h3>
                 <p class="text-capitalize my-3 font-roboto"><?php echo $productDetail[0]['short_desc'];   ?></p>
                 <h5 class="my-3 text-capitalize font-roboto "> <span class="text-muted ">Category : </span><?php echo $productDetail[0]['categories'];   ?> </h5>
@@ -139,3 +143,23 @@ $product_id = $_GET['product_id'];
 include "includes/footer.inc.php";
 
 ?>
+<script>
+    $(document).ready(function() {
+        function manage_cart(pid,type) {
+            var qty = $('#qty').val();
+            
+            $.ajax({
+                url : "manageCart.php",
+                type : "POST",
+                data : {
+                    qty : qty,
+                    id :  id,
+                    type : type
+                },
+                success: function  (params) {
+                    
+                }
+            })
+        }
+    });
+</script>
