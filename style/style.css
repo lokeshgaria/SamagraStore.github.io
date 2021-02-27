@@ -14,21 +14,30 @@ html{
     --gugi:"Gugi",cursive;
     --sofia:"Sofia",cursive;
 }
+
+#registerDiv{
+    background-image: linear-gradient(#f2f2f3,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://images.pexels.com/photos/2529787/pexels-photo-2529787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1950&w=2240');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:  auto;
+}
  
  #insertMsg{
-    background: #343a40;s
+    background: #c7152d;
     width: auto;
     color: white;
     display: inline-block;
-    position: fixed;
-    top: 65%;
-    left: 48%;
-    display: none;
+    border: 2px solid #bdb3b3;
+    position: absolute;
+    top: 89%;
+    left: 43%;
+     display: none; 
     border-radius: 5px;
     padding: 3px 23px;
     margin: 0px 7px;
 }
- }
+ 
 
 .primary-color{
     color : var(--primary-color);
@@ -80,7 +89,7 @@ html{
  }
  .navbar-nav .nav-link{
      font-size: 0.9em;
-     color: var(--light-gray)!important;
+     color: var(--light-gray);
 
  }
  .navbar-nav .nav-item .nav-link{
@@ -215,7 +224,16 @@ html{
      /* X-Small devices (portrait phones, less than 576px)*/
      @media (max-width: 475.98px) { 
          
+        .nav{
+            display: block  !important;
           
+            text-align: center;
+        }
+        .nav a{
+            background: #4f6966;
+            margin: 4px 0;
+            color:  white  !important;
+        }
 
        .img-slider-1 {
             width: 100% !important;
@@ -305,6 +323,6 @@ html{
      .sub-heading{
     font-size: 16px;
     }   
-
+   
 
  }

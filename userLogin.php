@@ -29,6 +29,7 @@ if(!empty($email) && !empty($password)){
     if ($usercount>0) {
         $userData = mysqli_fetch_assoc($select);
         $_SESSION['username'] = $userData['name'];
+        $_SESSION['email'] = $userData['email'];
          echo 1;
     }else{
         echo "invalid email or password";

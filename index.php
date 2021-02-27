@@ -192,9 +192,9 @@ include "includes/headers.inc.php";
                         <hr>
         <div class="row">
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-12">
              <div class="container">
-             <iframe class="m-0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13993.025392856549!2d77.1370109!3d28.7417623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1614342549969!5m2!1sen!2sin" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+             <iframe class="m-0 img-fluid"  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13993.025392856549!2d77.1370109!3d28.7417623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1614342549969!5m2!1sen!2sin" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
              </div>
           
             </div>

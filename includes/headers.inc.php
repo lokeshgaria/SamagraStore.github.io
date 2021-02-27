@@ -11,8 +11,8 @@ if (isset($_SESSION['username'])) {
 } else {
     $userName = "SignIn/Register";
 }
-if (isset($_GET['email'])) {
-    $email = $_GET['email'];
+if (isset($_SESSION['email'])) {
+    $email =   $_SESSION['email'];
     $selectUserData = mysqli_query($conn, "select * from users where email ='$email'");
     $userData = mysqli_fetch_assoc($selectUserData);
     $username = $userData['name'];
@@ -68,11 +68,11 @@ if (isset($_GET['email'])) {
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 col-12 text-start">
-                    <h2 class="my-md-3 site-title primary-color text-white"> <span class="font-sofia"> S</span>amagra
+                <div class="col-lg-3 col-md-6 col-3 text-start" >
+                    <h2 class="my-md-3 site-title primary-color text-white" id="title"> <span class="font-sofia"> S</span>amagra
                         Store</h2>
                 </div>
-                <div class=" col-lg-9 col-md-6 col-12 text-right links  ">
+                <div class=" col-lg-9 col-md-6 col-9 text-right links  ">
                     <p class="text-white  site-title my-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
                     </p>
                     <a href="logout.php">Log Out</a>
