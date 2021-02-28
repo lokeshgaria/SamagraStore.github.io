@@ -2,8 +2,12 @@
 session_start();
 include "connection.inc.php";
 include "includes/function.inc.php";
+include "includes/cart.inc.php";
 $msg = "";
-
+$object = new add_cart();
+ 
+$totalCount = $object->totalProduct();
+ 
 
 
 if (isset($_SESSION['username'])) {
@@ -115,7 +119,7 @@ if (isset($_SESSION['email'])) {
                     </form>
                     <li class="nav-item mx-2 search-icon">
                    
-                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id=cartNotification class="bg-danger   text-white">1</span>
+                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id=cartNotification class="bg-danger   text-white"><?php echo $totalCount; ?></span>
                     </li>
                 </div>
             </nav>

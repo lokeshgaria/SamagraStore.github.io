@@ -30,7 +30,7 @@ $cat_id = $_GET['id'];
     </div>
     <!-- Row one -->
     <div class="row " id="featured-product">
-        <?php
+        <?php 
         $catData = get_product($conn, '', $cat_id);
         if (count($catData) > 0) {
             foreach ($catData as   $value) { ?>

@@ -143,23 +143,3 @@ $product_id = $_GET['product_id'];
 include "includes/footer.inc.php";
 
 ?>
-<script>
-    $(document).ready(function() {
-        function manage_cart(pid,type) {
-            var qty = $('#qty').val();
-            
-            $.ajax({
-                url : "manageCart.php",
-                type : "POST",
-                data : {
-                    qty : qty,
-                    id :  id,
-                    type : type
-                },
-                success: function  (params) {
-                    
-                }
-            })
-        }
-    });
-</script>
