@@ -156,6 +156,110 @@ include "includes/headers.inc.php";
     </div>
     <!--  Second Slider Ends -->
     <!--collection ends-->
+
+
+    <!--contact us -->
+    <div class="container-fluid bg-light  primary-color py-5 " id="contactus">
+        <h2 class="font-weight-bold">Contact Us </h2>
+        <hr class="bg-white">
+        <div id="google_map" class="google_map">
+            <div class="map_container">
+                <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98154.8052501477!2d-75.56300484770905!3d39.75452647939008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6e310ebe2e5bf%3A0xdc0ef3758b2a693b!2sEdgemoor%2C%20DE%2019809%2C%20USA!5e0!3m2!1sen!2sin!4v1608631824500!5m2!1sen!2sin" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+            </div>
+        </div>
+        <div class="row my-4">
+
+            <div class="col-lg-3 col-12 bg-dark mx-5 pt-5 ml-auto">
+
+                <div class="  font-sofia  text-start">
+                    <h4>Connect With Us</h4>
+
+                </div>
+
+                <div class="featured-content">
+                    <div class="featured-desc  d-flex ">
+                        <i class="fas fa-3x mt-3 fa-map-marker-alt"></i>
+                        <p class="mx-5" style="color:#fff">501, Silverside Road,<br>
+                            105 Suite Nos.Wilmington City,<br>
+                            Delaware 19809 USA</p>
+                    </div>
+                </div>
+                <hr class="bg-white">
+                <div class="featured-content">
+                    <div class="featured-desc d-flex ">
+                        <i class="fas fa-3x fa-phone-alt"></i>
+                        <p class="mx-5" style="color:#fff"> 24/7 Support<br>
+                            +91-XXXX-XXXX</p>
+                    </div>
+                </div>
+                <hr class="bg-white">
+                <div class="featured-content">
+                    <div class="featured-desc d-flex ">
+                        <i class="far fa-3x fa-envelope"></i>
+                        <p class="mx-5" style="color:#fff">shoponline@gmail.com<br>
+
+                    </div>
+                </div>
+                <hr class="bg-white">
+
+                 <div class="d-flex justify-content-start">
+                 <a  class="nav-link text-white"  href=""><i class="fab fa-linkedin-in"></i></a> 
+                    <a class="nav-link   text-white"  href=""><i class="fab fa-google-plus"></i></a> 
+                   <a  class="nav-link text-white"  href=""><i class="fab fa-twitter"></i></a> 
+                     <a  class="nav-link text-white"  href=""><i class="fab fa-facebook"></i></a> 
+               
+                 </div>
+                  
+            </div>
+            <div class="col-lg-5 mr-auto">
+
+                <form class="mt-3" id="feedbackForm" method="post">
+
+                    <div class="form-group font-sofia ">
+                        <!-- first row -->
+                        <h4 class="text-capitalize"> Give feedback to us ..</h4>
+                        <div class="row  ">
+                            <div class="col-lg-12 col-12">
+                                <input type="text" name="newname" class="form-control" id="username" placeholder="Enter Your Name" value="<?php echo  $attr = "$username"; ?>">
+
+                            </div>
+                            <div class="col-lg-12 col-12 my-2">
+                                <input type="email" class="form-control" id="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" value="<?php echo $attr = "$email";  ?>">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                    else.</small>
+                            </div>
+                        </div>
+                        <!-- second row -->
+                        <div class="row">
+                            <div class="col-lg-12 col-12">
+                                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" placeholder="Contact Number" value="<?php echo  $attr = "$phone"; ?>">
+
+                            </div>
+                            <div class="col-lg-12 col-12 my-3">
+                                <h5 class="text-capitalize">write here..</h5><p id="error" class="text-capitalize"></p>
+                                <textarea name="comment" class="form-control" id="message" cols="200" name="comment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <!-- third row -->
+                        <div class="row">
+
+                             <div class="col-lg-12 col-12">
+                                <input type="button"  class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " id="feedbackbutton" style=" letter-spacing: 5px; " name="submit" value="submit">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
     <!-- Brands start here -->
     <div class="brand bg-light  my-5">
         <h3 class="font-gugi text-success text-capitalize text-center py-3 border-bottom "> our business partners
@@ -185,65 +289,7 @@ include "includes/headers.inc.php";
         </div>
     </div>
     <!-- Brands ends start here -->
-
-    <!--contact us -->
-    <div class="container-fluid bg-light font-sofia primary-color py-5 " id="contactus">
-    <h2 class="font-weight-bold">Contact Us </h2>
-                        <hr>
-        <div class="row">
-
-            <div class="col-lg-6 col-12">
-             <div class="container">
-             <iframe class="m-0 img-fluid"  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13993.025392856549!2d77.1370109!3d28.7417623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1614342549969!5m2!1sen!2sin" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-             </div>
-          
-            </div>
-            <div class="col-lg-6">
-                <form class="w-75" action="index.php" method="post">
-
-                    <div class="form-group ">
-                       <!-- first row -->
-                       <div class="row  ">
-                            <div class="col-lg-12 col-12">
-                                <input type="text" name="newname" class="form-control" id="" placeholder="Enter Your Name" value="<?php echo  $attr = "$username"; ?>">
-
-                            </div>
-                            <div class="col-lg-12 col-12 my-2">
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" value="<?php echo $attr = "$email";  ?>">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                    else.</small>
-                            </div>
-                        </div>
-                        <!-- second row -->
-                        <div class="row">
-                            <div class="col-lg-12 col-12">
-                                <input type="text" class="form-control" id="" name="phone" aria-describedby="emailHelp" placeholder="Contact Number" value="<?php echo  $attr = "$phone"; ?>">
-
-                            </div>
-                            <div class="col-lg-12 col-12 my-3">
-                                <h5 class="text-capitalize">any suggestions for us?</h5>
-                                <textarea name="comment" class="form-control" id="" cols="200" name="comment" rows="5"></textarea>
-                            </div>
-                        </div>
-                        <!-- third row -->
-                        <div class="row">
-
-                            <div class="col-lg-12 col-12">
-                                <button type="submit" class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " style=" letter-spacing: 5px; " name="submit">Submit</button>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
-                </form>
-            </div>
-
-        </div>
-
-    </div>
+     
 </main>
 
 <?php

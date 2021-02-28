@@ -12,8 +12,10 @@ $totalCount = $object->totalProduct();
 
 if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
+    $toggle ='<i class="fas fa-sign-out-alt" data-toggle="true" title="logout" > </i>';
 } else {
     $userName = "SignIn/Register";
+    $toggle ="";
 }
 if (isset($_SESSION['email'])) {
     $email =   $_SESSION['email'];
@@ -49,8 +51,7 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Font Awesome cdn -->
-    <script src="https://kit.fontawesome.com/93e0313e1a.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="style/style.css">
@@ -72,14 +73,20 @@ if (isset($_SESSION['email'])) {
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 col-3 text-start" >
-                    <h2 class="my-md-3 site-title primary-color text-white" id="title"> <span class="font-sofia"> S</span>amagra
+                <div class="col-lg-6 col-md-6 col-3 text-start d-flex" >
+                    <h2 class="my-md-3  site-title primary-color text-white" id="title"> <span class="font-sofia"> S</span>amagra
                         Store</h2>
+                        <img src="http://localhost/SamagraStore/images/logo/store.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: 13px">
                 </div>
-                <div class=" col-lg-9 col-md-6 col-9 text-right links  ">
-                    <p class="text-white  site-title my-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
+                <div class=" col-lg- col-md-6 col-9 text-right links  ">
+                   <div>
+                   <p class="text-white  site-title my-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
+
+                   <a href="logout.php" class="text-white "><?php echo $toggle ; ?></a>
                     </p>
-                    <a href="logout.php">Log Out</a>
+                  
+                   </div>
+                   
                 </div>
             </div>
         </div>
@@ -102,8 +109,7 @@ if (isset($_SESSION['email'])) {
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
                                 <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?></a> </li>
                             <?php  } ?>
-                            <li><a class="  nav-link text-uppercase" href="product.php">Products</a>
-                            </li>
+                             
                             <li><a class=" nav-link text-uppercase" href="#contactus">Contact us</a>
                             </li>
                             <li><a class="  nav-link text-uppercase" href="#aboutus"> About us</a></li>
@@ -119,7 +125,7 @@ if (isset($_SESSION['email'])) {
                     </form>
                     <li class="nav-item mx-2 search-icon">
                    
-                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id=cartNotification class="bg-danger   text-white"><?php echo $totalCount; ?></span>
+                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id="cartNotification" class="bg-danger   text-white"><?php echo $totalCount; ?></span>
                     </li>
                 </div>
             </nav>

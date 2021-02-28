@@ -201,7 +201,7 @@
                      });
 
                      $.ajax({
-                         url: "addProduct.php",
+                         url: "addProduct.php", 
                          type: "POST",
                          async: "true",
                          data: new FormData(this),

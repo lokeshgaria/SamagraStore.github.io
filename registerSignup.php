@@ -55,7 +55,7 @@ $loginmsg = "";
                             <div class="modal-body">
                                 <form action=" " method="post">
                                     <input class="form-control form-control-sm my-3" id="emailLogin" type="text" placeholder="Enter Email Id " id="email">
-                                    <input class="form-control form-control-sm " id="passLogin" type="password" placeholder="Enter Password" id="password">
+                                    <input class="form-control form-control-sm " id="passLogin" placeholder="Enter Email" type="password" placeholder="Enter Password" id="password">
                                     <div>
                                         <p class="text-danger font-weight-bold my-2 text-capitalize" id="passMsg"> </p>
                                     </div>
@@ -97,7 +97,14 @@ $loginmsg = "";
                 setTimeout(function() {
                     $('#insertMsg').text("Fill All Input Fields").fadeOut(1000)
                 }, 2000);
-            } else {
+            } 
+             else if (pass!==cpass) {
+                $('#insertMsg').text("password and confirm password are not equal ").fadeIn(1000)
+                setTimeout(function() {
+                    $('#insertMsg').text("password and confirm password are not equal").fadeOut(1000)
+                }, 2000); 
+            }
+            else {
                 $.ajax({
                     url: "insertUserdata.php",
                     type: "POST",
@@ -109,9 +116,9 @@ $loginmsg = "";
                     },
                     success: function(data) {
                         if (data == 1) {
-                            $('#insertMsg').text("Data inserted successfully").fadeIn(1000)
+                            $('#insertMsg').text(" account created successfully").fadeIn(1000)
                             setTimeout(function() {
-                                $('#insertMsg').text("Data inserted successfully").fadeOut(1000)
+                                $('#insertMsg').text(" account created successfully").fadeOut(1000)
                             }, 2000);
                         } else if (data == 0) {
                             $('#insertMsg').text("Data not inserted ").fadeIn(1000)
