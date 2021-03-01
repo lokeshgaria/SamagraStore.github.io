@@ -1,10 +1,11 @@
 <?php
-session_start();
+ 
 include "connection.inc.php";
 include "includes/function.inc.php";
 include "includes/cart.inc.php";
-$msg = "";
+
 $object = new add_cart();
+ 
  
 $totalCount = $object->totalProduct();
  
@@ -41,7 +42,7 @@ if (isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://i.pinimg.com/236x/2d/96/4a/2d964a6bf37d9224d0615dc85fccdd62--shopping-cart-logo-info-graphics.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" type="image/x-icon">
     <title>Online Store</title>
 
     <!-- jQuery cdn-->

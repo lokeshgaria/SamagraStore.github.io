@@ -35,8 +35,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     function manage_cart(pid, type) {
-        var qty = $('#qty').val();
-        console.log(qty);
+         if(type=="update"){
+           
+            var qty = $("#"+pid+"qty").val();
+            console.log(qty);
+           
+         }else{
+            var qty = $('#qty').val();  
+         }
+       
+        
         $.ajax({
             url: "manageCart.php",
             type: "POST",
@@ -46,6 +54,9 @@
                 type: type
             },
             success: function(params) {
+                if(type=='update'|| type=='remove'){
+                  window.location.replace('http://localhost/SamagraStore.github.io/cart.php');
+                }
                 $('#cartNotification').html(params);
             }
         })

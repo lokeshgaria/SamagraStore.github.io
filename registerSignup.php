@@ -54,13 +54,28 @@ $loginmsg = "";
                             </div>
                             <div class="modal-body">
                                 <form action=" " method="post">
-                                    <input class="form-control form-control-sm my-3" id="emailLogin" type="text" placeholder="Enter Email Id " id="email">
-                                    <input class="form-control form-control-sm " id="passLogin" placeholder="Enter Email" type="password" placeholder="Enter Password" id="password">
+                                    <input class="form-control form-control-sm my-3" id="emailLogin" type="text" placeholder="Enter Email Id " value="<?php
+                                                                                                                                                        if (isset($_COOKIE['email'])) {
+                                                                                                                                                            echo $_COOKIE['email'];
+                                                                                                                                                        }
+                                                                                                                                                        ?>" id="email">
+                                    <input class="form-control form-control-sm " id="passLogin" type="password" placeholder="Enter Password" id="password" value="<?php
+                                                                                                                                                                    if (isset($_COOKIE['pass'])) {
+                                                                                                                                                                        echo $_COOKIE['pass'];
+                                                                                                                                                                    }
+                                                                                                                                                                    ?>">
+                                    <div class="" style="margin: 6px 1px 3px;">
+                                        <input type="checkbox" class=" " name="check" id="check" <?php if (isset($_COOKIE['check'])) {
+                                                                                                        echo $_COOKIE['check'];
+                                                                                                    } ?>> Remember me
+                                    </div>
+
+
                                     <div>
-                                        <p class="text-danger font-weight-bold my-2 text-capitalize" id="passMsg"> </p>
+                                        <p class="text-danger m-0 p-0 font-weight-bold  text-capitalize" id="passMsg"> </p>
                                     </div>
                                     <div>
-                                        <span><a class="nav-link" href="forgit.php">Forgot Password? </a></span>
+                                        <span><a class="nav-link m-0 p-0" href="forgit.php">Forgot Password? </a></span>
                                     </div>
                             </div>
                             <div class="modal-footer">
@@ -97,14 +112,12 @@ $loginmsg = "";
                 setTimeout(function() {
                     $('#insertMsg').text("Fill All Input Fields").fadeOut(1000)
                 }, 2000);
-            } 
-             else if (pass!==cpass) {
+            } else if (pass !== cpass) {
                 $('#insertMsg').text("password and confirm password are not equal ").fadeIn(1000)
                 setTimeout(function() {
                     $('#insertMsg').text("password and confirm password are not equal").fadeOut(1000)
-                }, 2000); 
-            }
-            else {
+                }, 2000);
+            } else {
                 $.ajax({
                     url: "insertUserdata.php",
                     type: "POST",
@@ -141,13 +154,15 @@ $loginmsg = "";
         $('#login').on("click", function() {
             var email = $('#emailLogin').val();
             var password = $('#passLogin').val();
+            var check = $('#check').val();
             console.log(email + " " + password);
             $.ajax({
                 url: "userLogin.php",
                 type: "POST",
                 data: {
                     email: email,
-                    password: password
+                    password: password,
+                    check: check
                 },
                 success: function(data) {
                     if (data == 1) {

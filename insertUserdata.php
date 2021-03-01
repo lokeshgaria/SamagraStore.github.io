@@ -22,7 +22,7 @@ if (!empty($name) && !empty($email) && !empty($contact) && !empty($password) ){
       echo 404;
       
     }else{
-        $insertQry = "INSERT INTO `users` (`id`, `name`, `email`, `password`, `mobile`, `added_on`) VALUES (NULL, '$name', '$email', '$password', '$contact', '$database')";
+        $insertQry = "INSERT INTO `users` (`id`, `name`, `email`, `password`, `mobile`, `added_on`) VALUES (NULL, '$name', '$email', '$password', '$contact', '$datetime')";
 
         $runQry = mysqli_query($conn,$insertQry);
         if($runQry){

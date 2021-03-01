@@ -1,10 +1,12 @@
 <?php
-
- class add_cart
+ session_start();
+  class add_cart
 {
-  function add_to_cart($pid, $qty)
+  public function add_to_cart($pid, $qty)
   {
     $_SESSION['cart'][$pid]['qty'] = $qty;
+    
+    
   }
   function update_cart($pid, $qty)
   {
@@ -26,12 +28,9 @@
   {
 
     if (isset($_SESSION['cart'])) {
-       
-         return count($_SESSION['cart']);
-      
-      
-    } else {
-      return 0;
+        return count($_SESSION['cart']);
+      } else {
+      return "0";
     }
   }
 }

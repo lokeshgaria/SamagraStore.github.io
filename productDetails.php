@@ -15,7 +15,7 @@ $product_id = $_GET['product_id'];
                 <img src="adminPanel/<?php echo $productDetail[0]['img'];   ?>" alt="<?php echo $productDetail[0]['name']; ?>" id="productimg" class="img-fluid ">
             </div>
             <div class="col-lg-6 col-12 ">
-                <p class="my-5 font-weight-bold text-capitalize font-roboto"><a href="mystore.php" class=" text-dark ">Home</a> / <a href="categories.php?id=<?php echo $productDetail[0]['categories_id'] ?>" class="text-dark "> <?php echo $productDetail[0]['categories'];  ?></a> / <?php echo $productDetail[0]['name'];    ?> </p>
+                <p class="my-5 font-weight-bold text-capitalize font-roboto"><a href="index.php" class=" text-dark ">Home</a> / <a href="categories.php?id=<?php echo $productDetail[0]['categories_id'] ?>" class="text-dark "> <?php echo $productDetail[0]['categories'];  ?></a> / <?php echo $productDetail[0]['name'];    ?> </p>
                 <h1 class="text-bold text-capitalize"> <?php echo $productDetail[0]['name']; ?></h1>
                 <h5 class="font-weight-bold"><span class="text-muted">₹<del><?php echo $productDetail[0]['mrp']; ?> </del> </span> &nbsp;₹<?php echo $productDetail[0]['price']; ?></h5>
                 <select name="" id="">
