@@ -1,5 +1,5 @@
 <?php include "includes/headers.inc.php";
-// pre($_SESSION['cart']);
+
 $collapse = "";
 error_reporting(0);
 if (!isset($_SESSION['username'])) {
@@ -36,7 +36,7 @@ if (count($_SESSION['cart']) == "0") {
                         <h5 class="bg-color text-roboto text-uppercase text-muted p-2  w-100 "> <span>+</span> checkout
                             Method </h5>
                         <div class="col-lg-6">
-                            <form action="" id=" " method="post" class="form-group font-roboto">
+                            <form action=""   method="post" class="form-group font-roboto">
                                 <h6>LOGIN </h6>
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -87,18 +87,16 @@ if (count($_SESSION['cart']) == "0") {
                         <h5>+ Address Details</h5>
                     </a>
                 </div>
-                <div class="col-lg">
-                    <p class="text-capitalize" id="insertMsg"></p>
-                </div>
+             
 
                 <div class="row my-1">
                     <div class="col">
                         <div class="collapse multi-collapse" id="multiCollapseExample1">
-                            <form action="" id="login" method="post" class="form-group font-roboto">
+                            <form action=""  method="post" class="form-group font-roboto">
 
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <input type="text" name="name" class="form-control  " id="name" placeholder="First Name">
+                                        <input type="text" name="name" class="form-control  " id="firstname" placeholder="First Name">
                                     </div>
                                     <div class="col-lg-12">
                                         <input type="text" name="street" class="form-control my-2 " id="street" placeholder="Street Address">
@@ -109,28 +107,49 @@ if (count($_SESSION['cart']) == "0") {
                                 </div>
                                 <div class="row my-3">
                                     <div class="col-lg-6">
-                                        <input type="text" name="city" class="form-control" id="city" placeholder="City /State">
+                                        <!--state -->
+                                        <select name="state" id="state" class="form-control">
+                                            <option value="">Select State</option>
+                                            <?php 
+                                            $select = mysqli_query($conn,"select * from all_states ");
+                                            while ($cityData=mysqli_fetch_assoc($select)) { ?>
+                                                <option value="<?php echo $cityData['state_name']; ?>"><?php echo $cityData['state_name']; ?></option>
+                                            <?php }
+                                            ?>
+                                        </select>
                                     </div>
-                                    <div class="col-lg-6  ">
-                                        <input type="text" name="zip" class="form-control   " id="zip" placeholder="Postal code / Zip">
+                                    <div class="col-lg-6">
+                                        <!--select city -->
+                                        <select name="city" id="city"  class="form-control">
+                                            <option value=""> Select city</option>
+                                            <?php 
+                                            $select = mysqli_query($conn,"select * from all_cities ");
+                                            while ($cityData=mysqli_fetch_assoc($select)) { ?>
+                                                <option value="<?php echo $cityData['city_name']; ?>"><?php echo $cityData['city_name']; ?></option>
+                                            <?php }
+                                            ?>
+                                            
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="row my-3">
                                     <div class="col-lg-6">
-                                        <input type="email" name="email" class="form-control  " id="email" placeholder="Email Address">
+                                        <input type="text" name="zip" class="form-control " id="zip" placeholder="Postal code / Zip">
                                     </div>
                                     <div class="col-lg-6  ">
-                                        <input type="text" name="phone" class="form-control   " id="phone" placeholder="Phone Number">
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number">
                                     </div>
                                 </div>
 
                             </form>
                         </div>
                     </div>
-
+                  
                 </div>
-
+                <div class="col-lg">
+                    <p class="text-capitalize" id="insertMsg"></p>
+                </div>
                 <!--payment details -->
                 <div class="bg-color">
                     <a class=" text-roboto text-uppercase text-muted nav-link   " data-toggle="<?php echo $collapse; ?>" href="#paymentDiv" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
@@ -142,7 +161,7 @@ if (count($_SESSION['cart']) == "0") {
                 <div class="row my-2">
                     <div class="col">
                         <div class="collapse multi-collapse" id="paymentDiv">
-                            <form action="" id="login" method="post" class="form-group font-roboto">
+                            <form action=""   method="post" class="form-group font-roboto">
 
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -171,7 +190,7 @@ if (count($_SESSION['cart']) == "0") {
 
                 </div>
 
-                <a href=" " class="btn font-roboto btn-outline-dark my-2">SUBMIT</a>
+                <p  class="btn font-roboto btn-outline-dark my-2" id="submit">SUBMIT</p>
             </div>
 
             <!--your order -->
@@ -235,8 +254,8 @@ if (count($_SESSION['cart']) == "0") {
                             <td class="text-dark text-start text-uppercase font-roboto">
                                 order total
                             </td>
-                            <td>
-                                ₹ <?php echo $cart_total + 45; ?>
+                            <td >
+                                ₹ <span id="totalprice"><?php echo $cart_total + 45; ?></span>
                             </td>
                         </tr>
                     </table>
@@ -245,7 +264,51 @@ if (count($_SESSION['cart']) == "0") {
         </div>
     </div>
 
-
+    
 
 </main>
 <?php include "includes/footer.inc.php"; ?>
+ <script>
+ $(document).ready(function  () {
+    $('#submit').on("click" ,function  () {
+        var firstName = $('#firstname').val();
+        var street = $('#street').val();
+        var block = $('#block').val();
+        var state = $('#state').val();
+        var city = $('#city').val();
+        var zip = $('#zip').val();
+        var phone = $('#phone').val();
+        var paymentMode =   $("[name='payment']:checked").val();
+       var totalprice = $('#totalprice').text().trim();
+       console.log(totalprice);
+      
+        if (firstName=="" || street==""|| block==""|| state==""|| city==""|| zip==""|| phone=="" || paymentMode=="") {
+            $('#insertMsg').text("Fill All Input Fileds").fadeIn(1000)
+                setTimeout(function() {
+                    $('#insertMsg').text("Fill All Input Fields").fadeOut(1000)
+                }, 2000);
+        } 
+        else{
+            $.ajax({
+                 url : "checkoutprocess.php",
+                 type : "POST",
+                 data : {
+                     firstName : firstName,
+                     street : street ,
+                     block : block , 
+                     state : state , 
+                     city : city ,
+                     zip : zip ,
+                     phone : phone,
+                     paymentMode : paymentMode,
+                     totalprice : totalprice
+                 },
+                 success : function (feedback){
+                swal(" Thankyou!", "Your order has been  placed !   ", "success");
+                 
+                 }
+            })
+        }
+    })
+ });
+ </script>

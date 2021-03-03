@@ -30,7 +30,7 @@ if (!empty($email) && !empty($password)) {
             $userData = mysqli_fetch_assoc($select);
             $_SESSION['username'] = $userData['name'];
             $_SESSION['email'] = $userData['email'];
-
+            $_SESSION['user_id'] = $userData['id'];
             setcookie("email" , "$email" , time()+3600 );
             setcookie("pass" , "$password" , time()+3600 );
             setcookie("check" ,"checked" , time()+3600);

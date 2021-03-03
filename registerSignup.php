@@ -3,7 +3,11 @@
 include "includes/headers.inc.php";
 $msg = "";
 $loginmsg = "";
-
+if (isset($_SESSION['username'])) {
+    ?>
+    <script>window.location.replace('index.php');</script>
+    <?php 
+}
 
 ?>
 <main>

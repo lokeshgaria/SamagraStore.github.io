@@ -3,9 +3,11 @@
 error_reporting(0);
 if (count($_SESSION['cart']) == "0") {
     $display = "block";
+    $button = "hidden";
 } else {
     $display = "none";
-}
+    $button = "visible";
+} 
 ?>
 
 <main>
@@ -60,7 +62,7 @@ if (count($_SESSION['cart']) == "0") {
 
                 </table>
             </div>
-            <div class=" w-100 d-flex justify-content-between">
+            <div class=" w-100 d-flex justify-content-between" style="visibility: <?php echo $button; ?>;">
                 <div class="link">
                     <a class="link btn btn-dark  text-uppercase font-roboto px-4" href="index.php">Continue Shopping</a>
                 </div>
@@ -70,7 +72,7 @@ if (count($_SESSION['cart']) == "0") {
             </div>
         </div>
         <div id="empty_cart" style="display:  <?php echo $display; ?>;">
-            <div class="d-flex justify-content-center  " style="position: absolute;left: 51%; top: 65%;">
+            <div class="d-flex justify-content-center py-3 " style="position: absolute;left: 51%; top: 65%;">
                 <h4 class="text-capitalize font-roboto">your cart is currently empty. </h4>
                 <a href="index.php" class="btn btn-outline-primary font-roboto  " style="position: absolute;top: 48px;left: 2px;">Return to shop</a>
             </div>

@@ -13,10 +13,12 @@ $totalCount = $object->totalProduct();
 
 if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
-    $toggle ='<i class="fas fa-sign-out-alt" data-toggle="true" title="logout" > </i>';
+    $toggle ='<i class="fas fa-sign-out-alt" data-toggle="tooltip" title="logout" data-placement="bottom" > </i>';
+    $display = "inline-block";
 } else {
     $userName = "SignIn/Register";
     $toggle ="";
+    $display = "none";
 }
 if (isset($_SESSION['email'])) {
     $email =   $_SESSION['email'];
@@ -56,7 +58,8 @@ if (isset($_SESSION['email'])) {
 
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="style/style.css">
-
+     <!--sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- fonts style
        font-family: 'Anton', sans-serif;
@@ -71,20 +74,24 @@ if (isset($_SESSION['email'])) {
     <!--- Header  -->
 
     <header>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
-                <div class="col-lg-6 col-md-6 col-3 text-start d-flex" >
+                <div class="col-lg-4 col-md-6 col-3 text-start d-flex" >
                 <img src="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: 13px">
                     <h2 class="my-md-3  site-title primary-color text-white" id="title"> <span class="font-sofia"> A</span>pex Mart</h2>
                      
                 </div>
-                <div class=" col-lg- col-md-6 col-9 text-right links  ">
+                <div class=" col-lg-6 col-md-6 col-9 text-right links ml-auto ">
                    <div>
-                   <p class="text-white  site-title my-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
+                   <p class="text-white  site-title m-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
 
-                   <a href="logout.php" class="text-white "><?php echo $toggle ; ?></a>
+                   <p  class="text-white  site-title text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="myorder.php" class="text-white" style="text-decoration:none ; display: <?php echo $display;?>" >My order</a>
+
+
+                   <a href="logout.php" class="text-white  m-3 "><?php echo $toggle ; ?></a>
                     </p>
+                  
                   
                    </div>
                    
