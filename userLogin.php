@@ -15,7 +15,7 @@ if ($conn) {
  
 <?php
 } else {
-    echo "connection failed";
+    echo "connection failed"; 
 }
 
 $email = $_POST['email'];
@@ -43,7 +43,7 @@ if (!empty($email) && !empty($password)) {
             setcookie("check","");
         }
     } else {
-        echo "invalid email or password";
+        echo "* invalid email or password";
     }
 }
 ?>

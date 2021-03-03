@@ -58,7 +58,7 @@ include "includes/headers.inc.php";
             </div>
 
             <div class="col-lg-6 col-sm-6 col-6 " id="ex-offer">
-                <p class=" ">Exclusively Available on <span class="  text-uppercase   font-roboto text-dark">Samagra
+                <p class=" ">Exclusively Available on <span class="  text-uppercase   font-roboto text-dark"> Apex
                         store</span> </p>
                 <h1><b>Mi Smart Band 4 </b> </h1>
                 <p>The Mi Smart Band 4 comes with an attractive full-colour AMOLED touchscreen display.With

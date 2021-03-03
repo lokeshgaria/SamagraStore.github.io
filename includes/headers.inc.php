@@ -43,7 +43,7 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" type="image/x-icon">
-    <title>Online Store</title>
+    <title>Apex Mart</title>
 
     <!-- jQuery cdn-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -75,9 +75,9 @@ if (isset($_SESSION['email'])) {
             <div class="row">
 
                 <div class="col-lg-6 col-md-6 col-3 text-start d-flex" >
-                    <h2 class="my-md-3  site-title primary-color text-white" id="title"> <span class="font-sofia"> S</span>amagra
-                        Store</h2>
-                        <img src="http://localhost/SamagraStore/images/logo/store.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: 13px">
+                <img src="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: 13px">
+                    <h2 class="my-md-3  site-title primary-color text-white" id="title"> <span class="font-sofia"> A</span>pex Mart</h2>
+                     
                 </div>
                 <div class=" col-lg- col-md-6 col-9 text-right links  ">
                    <div>
@@ -108,7 +108,7 @@ if (isset($_SESSION['email'])) {
                             $getcatquerry = "select * from categories where status = 'active'";
                             $cat_res = mysqli_query($conn, $getcatquerry);
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
-                                <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?></a> </li>
+                                <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>" ><?php echo $row['categories'] ?></a> </li>
                             <?php  } ?>
                              
                             <li><a class=" nav-link text-uppercase" href="#contactus">Contact us</a>
@@ -126,7 +126,7 @@ if (isset($_SESSION['email'])) {
                     </form>
                     <li class="nav-item mx-2 search-icon">
                    
-                        <a href="cart.php" target="_blank"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id="cartNotification" class="bg-danger   text-white"><?php echo $totalCount; ?></span>
+                        <a href="cart.php"   style="text-decoration: none;"><i class="fas  border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id="cartNotification" class="bg-danger   text-white"><?php echo $totalCount; ?></span>
                     </li>
                 </div>
             </nav>

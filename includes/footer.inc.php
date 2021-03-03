@@ -8,7 +8,9 @@
                     <img src="images/play-store.png " class="img-fluid d-inline w-25 mx-3 py-2" alt=""><img src="images/app-store.png" alt="" class="img-fluid d-inline w-25">
                 </div>
                 <div class="col-lg-4 col-sm-4 col-12 my-3">
-                    <h4 class="text-white font-gugi">Samagra Store</h4>
+                    <div class="d-flex">
+                    <h4 class="text-white font-gugi">Apex Mart</h4> <img src="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: -10px 26px">
+                    </div>
                     <small class="text-muted"> Our Purpose is to provide best Quality products at fair
                         prices.</small>
 
@@ -23,7 +25,7 @@
                 </div>
 
             </div>
-            <h6 class="text-white font-roboto text-center"> Copyright &copy; Samagra Store Made by Lokesh Garia
+        <h6 class="text-white font-roboto text-center"> Copyright &copy;  Apex Store  <?php echo date('Y')?> Made by Lokesh Garia ♈
             </h6>
         </div>
 
@@ -55,7 +57,7 @@
             },
             success: function(params) {
                 if(type=='update'|| type=='remove'){
-                  window.location.replace('http://localhost/SamagraStore.github.io/cart.php');
+                  window.location.reload();
                 }
                 $('#cartNotification').html(params);
             }
@@ -98,6 +100,88 @@
                }
               
             
+        })
+    });
+</script>
+<script>
+    // insert data using ajax
+    $(document).ready(function() {
+        $('#create').on("click", function() {
+
+            var name = $('#name').val();
+            var email = $('#emailregister').val();
+            var number = $('#number').val();
+            var pass = $('#pass').val();
+            var cpass = $('#cpass').val();
+
+            console.log(name + " " + email + " " + number + " " + pass);
+
+            if (name == "" || email == "" || number == "" || pass == "" || cpass == "") {
+                $('#insertMsg').text("Fill All Input Fileds").fadeIn(1000)
+                setTimeout(function() {
+                    $('#insertMsg').text("Fill All Input Fields").fadeOut(1000)
+                }, 2000);
+            } else if (pass !== cpass) {
+                $('#insertMsg').text("password and confirm password are not equal ").fadeIn(1000)
+                setTimeout(function() {
+                    $('#insertMsg').text("password and confirm password are not equal").fadeOut(1000)
+                }, 2000);
+            } else {
+                $.ajax({
+                    url: "insertUserdata.php",
+                    type: "POST",
+                    data: {
+                        username: name,
+                        email: email,
+                        contact: number,
+                        password: pass
+                    },
+                    success: function(data) {
+                        if (data == 1) {
+                            $('#insertMsg').text(" account created successfully").fadeIn(1000)
+                            setTimeout(function() {
+                                $('#insertMsg').text(" account created successfully").fadeOut(1000)
+                            }, 2000);
+                        } else if (data == 0) {
+                            $('#insertMsg').text("Data not inserted ").fadeIn(1000)
+                            setTimeout(function() {
+                                $('#insertMsg').text("Data not inserted ").fadeOut(1000)
+                            }, 2000);
+                        } else {
+                            $('#insertMsg').text("email already exist try to login ").fadeIn(1000)
+                            setTimeout(function() {
+                                $('#insertMsg').text("email already exist try to login ").fadeOut(1000)
+                            }, 2000);
+                        }
+                    }
+                })
+
+            }
+
+        })
+
+        $('#login').on("click", function() {
+            var email = $('#emailLogin').val();
+            var password = $('#passLogin').val();
+            var check = $('#check').val();
+            console.log(email + " " + password);
+            $.ajax({
+                url: "userLogin.php",
+                type: "POST",
+                data: {
+                    email: email,
+                    password: password,
+                    check: check
+                },
+                success: function(data) {
+                    if (data == 1) {
+                        window.location.reload();
+                    } else {
+                        $('#passMsg').text(data);
+                    }
+
+                }
+            })
         })
     });
 </script>
