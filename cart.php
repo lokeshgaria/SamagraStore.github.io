@@ -31,7 +31,9 @@ if (count($_SESSION['cart']) == "0") {
                     </tr>
 
                     <?php
-                    foreach ($_SESSION['cart'] as $key => $value) {
+             $i =0;
+ foreach ($_SESSION['cart'] as $key => $value) {
+                        $i++;     
                         $cartdata = get_product($conn, "", "", $key);
                         $pname = $cartdata[0]['name'];
                         $mrp = $cartdata[0]['mrp'];
@@ -41,7 +43,7 @@ if (count($_SESSION['cart']) == "0") {
 
                     ?>
                         <tr class="bg-light text-center">
-                            <td>1</td>
+                            <td><?php echo $i; ?></td>
                             <td><img src="./adminPanel/<?php echo $img; ?>" alt="productimage" width="100px" height="90px"></td>
                             <td>
                                 <p><?php echo $pname; ?></p>
