@@ -70,6 +70,10 @@
         $('#productTable').css("display","none");
         $('#userTable').css("display","none");
         $('#product').removeClass('current');
+        $('#orderTable').css("display","none");
+        $('#user').removeClass('current');
+        $('#contact').removeClass('current');
+        $('#order').removeClass('current');
         $('#contactTable').css("display","none");
        })
        $('#product').on("click",function  () {
@@ -77,6 +81,10 @@
            $('#product').addClass('current');
            $('#categoryTable').css("display","none");
            $('#category').removeClass("current");
+           $('#user').removeClass("current");
+           $('#contact').removeClass("current");
+           $('#order').removeClass("current");
+           $('#orderTable').css("display","none");
            $('#userTable').css("display","none");
            $('#contactTable').css("display","none");
        })
@@ -85,15 +93,41 @@
         $('#productTable').css("display","none");
         $('#categoryTable').css("display","none");
         $('#contactTable').css("display","none");
+        $('#orderTable').css("display","none");
         $('#user').addClass('current');
-       })
+        $('#category').removeClass("current");
+           $('#product').removeClass("current");
+           $('#contact').removeClass("current");
+           $('#order').removeClass("current");
+           
+       });
+
        $('#contact').on("click",function  () {
         $('#contactTable').css("display","block");
         $('#productTable').css("display","none");
         $('#contact').addClass('current');
         $('#userTable').css("display","none");
         $('#categoryTable').css("display","none");
+        $('#orderTable').css("display","none");
+        $('#category').removeClass("current");
+           $('#product').removeClass("current");
+           $('#user').removeClass("current");
+           $('#order').removeClass("current");
        })
+
+       $('#order').on("click",function  () {
+        $('#contactTable').css("display","none");
+        $('#productTable').css("display","none");
+        $('#orderTable').css("display","block");
+        $('#order').addClass('current');
+        $('#userTable').css("display","none");
+        $('#categoryTable').css("display","none");
+        $('#category').removeClass("current");
+           $('#product').removeClass("current");
+           $('#user').removeClass("current");
+           $('#category').removeClass("current");
+       })
+
     });
 </script>
            

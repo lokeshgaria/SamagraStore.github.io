@@ -55,7 +55,7 @@ if (isset($_GET['delete_id'])) {
 
   
     
-    <title>Admin Dashboard | Samagra store </title>
+    <title>Admin Dashboard |  Apex store </title>
 </head>
 
 <body>
@@ -69,7 +69,7 @@ if (isset($_GET['delete_id'])) {
                 <div class="row ">
                     <!--sidebar -->
                     <div class="col-lg-2  sidebar fixed-top ">
-                        <a href="http://localhost/SamagraStore.github.io/" class="navbar-brand text-warning d-block mx-auto text-start font-weight-bold py-3 mb-4 bottom-border">SamagraStore</a>
+                        <a href="http://localhost/SamagraStore.github.io/" class="navbar-brand text-warning d-block mx-auto text-start font-weight-bold py-3 mb-4 bottom-border">Apex Store</a>
                         <div class="bottom-border ">
                             <a href="" class="text-white nav-link  text-capitalize font-weight-bold ">
                                 <h5> Hello , <?php echo $_SESSION['username']; ?></h5>
@@ -101,7 +101,7 @@ if (isset($_GET['delete_id'])) {
                     <div class="col-lg-10 ml-auto bg-dark fixed-top py-3  top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-light text-capitalize">Category Master</h4>
+                                <h4 class="text-light text-capitalize"> Dashboard</h4>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
