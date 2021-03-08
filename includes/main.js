@@ -1,7 +1,7 @@
- 
+ //manage cart function
     function manage_cart(pid, type) {
         var qty = $('#qty').val();
-        console.log(qty);
+      
         $.ajax({
             url: "manageCart.php",
             type: "POST",
@@ -16,4 +16,13 @@
             }
         })
     }
+ //
+///sort product
+ function sortProduct(pid) {
+      var sortTo = $('#filter').val();
+   
+          window.location.replace("categories.php?id="+pid+"&sort="+sortTo);
+        
+
+ }
  

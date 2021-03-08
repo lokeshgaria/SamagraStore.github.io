@@ -33,9 +33,16 @@ include "includes/headers.inc.php";
             <?php
             $productData = get_product($conn, 4);
             foreach ($productData as  $value) {  ?>
-
+              
                 <div class="col-lg-3 col-sm-3 text-center col-6">
                     <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <div>
+                    <input type="hidden" name="" id="qty" value="1">
+                    <ul class="" id="hoverList">
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
                     <div>
                         <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
@@ -46,6 +53,7 @@ include "includes/headers.inc.php";
                 </div>
             <?php } ?>
         </div>
+
     </div>
     <!-- Featured Products ends here -->
 
@@ -202,14 +210,14 @@ include "includes/headers.inc.php";
                 </div>
                 <hr class="bg-white">
 
-                 <div class="d-flex justify-content-start">
-                 <a  class="nav-link text-white"  href=""><i class="fab fa-linkedin-in"></i></a> 
-                    <a class="nav-link   text-white"  href=""><i class="fab fa-google-plus"></i></a> 
-                   <a  class="nav-link text-white"  href=""><i class="fab fa-twitter"></i></a> 
-                     <a  class="nav-link text-white"  href=""><i class="fab fa-facebook"></i></a> 
-               
-                 </div>
-                  
+                <div class="d-flex justify-content-start">
+                    <a class="nav-link text-white" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="nav-link   text-white" href=""><i class="fab fa-google-plus"></i></a>
+                    <a class="nav-link text-white" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="nav-link text-white" href=""><i class="fab fa-facebook"></i></a>
+
+                </div>
+
             </div>
             <div class="col-lg-5 mr-auto">
 
@@ -236,15 +244,16 @@ include "includes/headers.inc.php";
 
                             </div>
                             <div class="col-lg-12 col-12 my-3">
-                                <h5 class="text-capitalize">write here..</h5><p id="error" class="text-capitalize"></p>
+                                <h5 class="text-capitalize">write here..</h5>
+                                <p id="error" class="text-capitalize"></p>
                                 <textarea name="comment" class="form-control" id="message" cols="200" name="comment" rows="5"></textarea>
                             </div>
                         </div>
                         <!-- third row -->
                         <div class="row">
 
-                             <div class="col-lg-12 col-12">
-                                <input type="button"  class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " id="feedbackbutton" style=" letter-spacing: 5px; " name="submit" value="submit">
+                            <div class="col-lg-12 col-12">
+                                <input type="button" class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " id="feedbackbutton" style=" letter-spacing: 5px; " name="submit" value="submit">
                             </div>
                         </div>
 
@@ -289,7 +298,7 @@ include "includes/headers.inc.php";
         </div>
     </div>
     <!-- Brands ends start here -->
-     
+
 </main>
 
 <?php

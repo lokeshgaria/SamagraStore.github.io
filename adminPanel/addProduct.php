@@ -7,15 +7,35 @@ $database = "mystore";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 $pname = $_POST['pname'];
+$pname = trim($pname);
+
 $category = $_POST['categories_id'];
+$category = trim($category);
+
 $mrp = $_POST['mrp'];
+$mrp = trim($mrp);
+
 $price = $_POST['price'];
+$price = trim($price);
+
 $qty = $_POST['qty'];
+$qty = trim($qty);
+
 $shortDesc = $_POST['short_desc'];
+$shortDesc = trim($shortDesc);
+
 $description = $_POST['description'];
+$description = trim($description);
+
 $meta_title = $_POST['meta_title'];
+$meta_title = trim($meta_title);
+
 $metaDesc = $_POST['meta_desc'];
+$metaDesc = trim($metaDesc);
+
 $metaKeyword = $_POST['meta_keyword'];
+$metaKeyword = trim($metaKeyword);
+
 $id = $_POST['id'];
 
 

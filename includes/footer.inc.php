@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4 col-12 my-3">
                     <div class="d-flex">
-                    <h4 class="text-white font-gugi">Apex Mart</h4> <img src="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: -10px 26px">
+                        <h4 class="text-white font-gugi">Apex Mart</h4> <img src="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" alt="" class="store-logo" style="    width: 39px; height: 39px; border-radius: 39px; margin: -10px 26px">
                     </div>
                     <small class="text-muted"> Our Purpose is to provide best Quality products at fair
                         prices.</small>
@@ -25,7 +25,7 @@
                 </div>
 
             </div>
-        <h6 class="text-white font-roboto text-center"> Copyright &copy;  Apex Store  <?php echo date('Y')?> Made by Lokesh Garia ♈
+            <h6 class="text-white font-roboto text-center"> Copyright &copy; Apex Store <?php echo date('Y') ?> Made by Lokesh Garia ♈
             </h6>
         </div>
 
@@ -37,16 +37,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     function manage_cart(pid, type) {
-         if(type=="update"){
-           
-            var qty = $("#"+pid+"qty").val();
+        if (type == "update") {
+
+            var qty = $("#" + pid + "qty").val();
             console.log(qty);
-           
-         }else{
-            var qty = $('#qty').val();  
-         }
-       
-        
+
+        } else {
+            var qty = $('#qty').val();
+        }
+
+
         $.ajax({
             url: "manageCart.php",
             type: "POST",
@@ -56,8 +56,8 @@
                 type: type
             },
             success: function(params) {
-                if(type=='update'|| type=='remove'){
-                  window.location.reload();
+                if (type == 'update' || type == 'remove') {
+                    window.location.reload();
                 }
                 $('#cartNotification').html(params);
             }
@@ -70,36 +70,36 @@
 
     $(document).ready(function() {
         $('#feedbackbutton').click(function() {
-            
-                
 
-               var name = $('#username').val();
-               var phone = $('#phone').val();
-               var email = $('#email').val();
-               var msg = $('#message').val();
-             
-               if (name==""||phone==""||email==""||msg=="") {
-                    $('#error').text("ERROR ,  please fill the form completely");
-               }else{
+
+
+            var name = $('#username').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var msg = $('#message').val();
+
+            if (name == "" || phone == "" || email == "" || msg == "") {
+                $('#error').text("ERROR ,  please fill the form completely");
+            } else {
                 $.ajax({
                     url: "feedback.php",
                     type: "POST",
-                     
+
                     data: {
-                        name : name,
-                        phone : phone,
-                        email : email,
-                        feedback : msg
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        feedback: msg
                     },
                     success: function(params) {
-                      if(params==1){
-                        $('#error').text("Thankyou for your feedback"); 
-                      }
+                        if (params == 1) {
+                            $('#error').text("Thankyou for your feedback");
+                        }
                     }
                 })
-               }
-              
-            
+            }
+
+
         })
     });
 </script>
@@ -161,9 +161,10 @@
         })
 
         $('#login').on("click", function() {
-            var email = $('#emailLogin').val();
-            var password = $('#passLogin').val();
+            var email = $('#emailLogin').val().trim();
+            var password = $('#passLogin').val().trim();
             var check = $('#check').val();
+
             console.log(email + " " + password);
             $.ajax({
                 url: "userLogin.php",
@@ -184,9 +185,28 @@
             })
         })
     });
-    $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-});
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+<script>
+    function wishlist(id, type) {
+        var ids = id;
+        var types = type;
+
+        $.ajax({
+            url: "wishlist.php",
+            type : "POST",
+            data: {
+                id: ids,
+                type: type
+            },
+            success: function(data) {
+             window.location.reload();
+            }
+        })
+
+    }
 </script>
 </body>
 

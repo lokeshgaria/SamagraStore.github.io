@@ -11,7 +11,7 @@ function prx($arr){
     die();
 }
 
-function get_product($conn, $limit='' , $cat_id='', $product_id=''){
+function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort=''){
     
     $sql = "select product.* , categories.categories from product , categories where product.status='active' ";
    
@@ -21,8 +21,22 @@ function get_product($conn, $limit='' , $cat_id='', $product_id=''){
     if ($product_id !="") {
         $sql = $sql ." and product.id = $product_id ";
     }
+
+   
     $sql = $sql." and product.categories_id=categories.id ";
-    $sql = $sql." order by product.id desc ";
+
+    if ($str !="") {
+        $sql = $sql ." and (product.name like '%$str%' or product.description like '%$str%') ";
+    }
+
+    if ($sort !="") {
+        $sql = $sql.$sort;
+    }
+    else{
+        $sql = $sql." order by product.id desc ";
+
+    }
+    
     if ($limit !="") {
         $sql = $sql." limit $limit ";
     }
@@ -35,6 +49,3 @@ function get_product($conn, $limit='' , $cat_id='', $product_id=''){
     };
     return $productData;
 }
-
- 
-?>

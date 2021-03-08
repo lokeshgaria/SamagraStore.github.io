@@ -17,8 +17,11 @@ else {
      echo "connection failed";
 }
 $category = $_POST['cat'];
+
+
 if (!empty($category)) {
     $category = $_POST['cat'];  
+    $category = trim($category);
     $checkCat = mysqli_query($conn,"select * from categories where categories = '$category'");
     $count = mysqli_num_rows($checkCat);
     if ($count>0) {

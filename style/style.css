@@ -1,6 +1,35 @@
 /*------- google fonts --------*/
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:ital@1&family=Roboto&family=Sofia&display=swap');
 
+#searchinput{
+    background: #f8f9fa;
+    width: 99%;
+    border-radius: 25px;
+}
+
+#submitsearch{
+    outline: none;
+    position:  fixed;
+    left: 1223px;
+    cursor: pointer;
+}
+#hoverList{
+     
+    width: 32%;
+    position: absolute;
+    top: 9px;
+    left: 178px;
+    list-style: none;
+}
+#hoverList li{
+    background: #dee2e6f2;
+    padding: 4px;
+     
+    margin: 8px 5px;
+    border-radius: 5px;
+}
+
+
 html{
     scroll-behavior: smooth;
 }
@@ -236,6 +265,14 @@ html{
  transform: translate(-50% , -50%);
 }
 #cartNotification{
+    display: inline;
+    padding: 0px 5px;
+    border-radius: 18px;
+    position: relative;
+    left: -19px;
+    top: -12px;
+}
+#wishlistnotification{
     display: inline;
     padding: 0px 5px;
     border-radius: 18px;

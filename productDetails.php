@@ -4,7 +4,7 @@ $product_id = $_GET['product_id'];
 
 ?>
 <main>
-
+ 
     <!-- Single product deails start-->
     <div class="container px-5 mt-5">
         <div class="row">
