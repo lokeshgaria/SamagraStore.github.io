@@ -1,5 +1,5 @@
 <?php
-include "includes/headers.inc.php";
+include "includes/headers.inc.php"; 
 $cat_id = $_GET['id'];
 $catname = mysqli_query($conn, "select categories from categories where id='$cat_id' ");
 $name  = mysqli_fetch_assoc($catname);

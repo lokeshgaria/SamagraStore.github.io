@@ -15,16 +15,15 @@ if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username'];
     $toggle = '<i class="fas fa-sign-out-alt" data-toggle="tooltip" title="logout" data-placement="bottom" > </i>';
     $display = "inline-block";
-    $uid =$_SESSION['user_id'];
-    $seleWish = mysqli_query($conn,"select * from wishlist where user_id='$uid'");
+    $uid = $_SESSION['user_id'];
+    $seleWish = mysqli_query($conn, "select * from wishlist where user_id='$uid'");
     $wishCount = mysqli_num_rows($seleWish);
-    
 } else {
     $userName = "SignIn/Register";
     $toggle = "";
     $wishlist = "none";
     $display = "none";
-    $wishCount="";
+    $wishCount = "";
 }
 if (isset($_SESSION['email'])) {
     $email =   $_SESSION['email'];
@@ -41,7 +40,21 @@ if (isset($_SESSION['email'])) {
     $phone = "";
     $attr = "";
 }
-
+$metatitle = "";
+$metaDesc = "";
+$metaKey = "";
+if (isset($_GET['id'])) {
+    $cat_id = $_GET['id'];
+    $select = mysqli_query($conn, "select * from product where categories_id = '$cat_id'");
+    $fetdata = mysqli_fetch_assoc($select);
+     
+    $metatitle = $fetdata['meta_title'];
+    $metaDesc = $fetdata['meta_desc'];
+    $metaKey = $fetdata['meta_keyword'];   
+}
+else{
+    $metatitle = "Apex Mart";
+}
 
 ?>
 <!DOCTYPE html>
@@ -49,9 +62,11 @@ if (isset($_SESSION['email'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="<?php echo $metaDesc; ?>">
+    <meta name="keywords" content="<?php echo $metaKey; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" type="image/x-icon">
-    <title>Apex Mart</title>
+    <title><?php echo $metatitle ;?></title>
 
     <!-- jQuery cdn-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -137,9 +152,9 @@ if (isset($_SESSION['email'])) {
                     <form action="search.php" class="form-inline my-2 my-lg-0 " method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search" name="value" required id="searchinput">
 
-                       <!--<button type="submit" class=" border rounded-circle bg-light " id="submitsearch" style="outline: none;"> <i style="padding: 8px 3px;" class="fas text-muted fa-search"></i></button> --> 
+                        <!--<button type="submit" class=" border rounded-circle bg-light " id="submitsearch" style="outline: none;"> <i style="padding: 8px 3px;" class="fas text-muted fa-search"></i></button> -->
                     </form>
-                    <li class="nav-item  " >
+                    <li class="nav-item  ">
 
                         <a href="cart.php" style="text-decoration: none;"><i class="fas   border rounded-circle fa-shopping-cart p-2 text-secondary"></i> </a><span id="cartNotification" class="bg-danger   text-white"><?php echo $totalCount; ?></span>
 

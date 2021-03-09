@@ -26,7 +26,7 @@ include "includes/headers.inc.php";
         </div>
     </div>
     <!-- first slider ends-->
-    <!-- Featured Products start here -->
+    <!-- New Arrivals start here -->
     <div class="container " id="featured-product">
         <h3 class=" text-center text-capitalize my-5 border-bottom">new arrivals</h3>
         <div class="row ">
@@ -55,29 +55,39 @@ include "includes/headers.inc.php";
         </div>
 
     </div>
-    <!-- Featured Products ends here -->
+    <!-- New Arrivals ends here -->
 
-    <!-- Offer Product starts-->
-
-    <div class="container-fluid my-5  band" id="band">
+   
+ <!-- New Arrivals start here -->
+ <div class="container " id="featured-product">
+        <h3 class=" text-center text-capitalize my-5 border-bottom">best Seller</h3>
         <div class="row ">
-            <div class="col-lg-6 col-sm-6 col-6">
-                <img src="images/exclusive.png " alt="offer" class="img-fluid">
-            </div>
-
-            <div class="col-lg-6 col-sm-6 col-6 " id="ex-offer">
-                <p class=" ">Exclusively Available on <span class="  text-uppercase   font-roboto text-dark"> Apex
-                        store</span> </p>
-                <h1><b>Mi Smart Band 4 </b> </h1>
-                <p>The Mi Smart Band 4 comes with an attractive full-colour AMOLED touchscreen display.With
-                    a range of pre-loaded watch faces to choose from, you can also personalize the display’s
-                    look with images from your smartphone’s gallery. </p>
-                <a class="btn btn-danger my-2 font-sofia w-25" href="">Buy Now</a>
-            </div>
+            <?php
+            $productData = get_product($conn,'4','','','','','yes');
+            foreach ($productData as  $value) {  ?>
+              
+                <div class="col-lg-3 col-sm-3 text-center col-6">
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <div>
+                    <input type="hidden" name="" id="qty" value="1">
+                    <ul class="" id="hoverList">
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                    <div>
+                        <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
+                        <div class="flex justify-content-end ">
+                            <span class="text-muted nav-item mx-3"> ₹ <s><?php echo $value['mrp']; ?></s></span>
+                            <span class="text-dark nav-item mx-3">₹<?php echo $value['price']; ?></span>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
-    </div>
 
-    <!-- Offer Product  Ends here-->
+    </div>
+    <!-- New Arrivals ends here -->
 
     <!--  about us  Starts here -->
     <div class="container" id="aboutus">

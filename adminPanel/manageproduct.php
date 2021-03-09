@@ -4,12 +4,13 @@
     $name = "";
     $mrp = "";
     $price = "";
-    $qty = ""; 
+    $qty = "";
     $meta_desc = "";
     $meta_title = "";
     $meta_keyword = "";
     $description = "";
     $short_desc = "";
+    $bestSeller = "22";
     $id = "";
     include "includes/headers.php";
     if (isset($_GET['id'])) {
@@ -30,6 +31,7 @@
             $meta_keyword = $getData['meta_keyword'];
             $description = $getData['description'];
             $short_desc = $getData['short_desc'];
+            $bestSeller = $getData['best_seller'];
         } else { ?>
          <script>
              window.location.replace('http://localhost/SamagraStore.github.io/adminPanel/admin.php');
@@ -53,7 +55,7 @@
                      <div class="col-12 ">
                          <h3 font-weight-light>Enter New Product </h3>
                          <h6 class="text-muted text-capitalize mx-3 text-start font-weight-bold my-3 mb-3"> <a href="admin.php">
-                                 Back to Product</a></h6>
+                                 Back to Product</a></h6>  
                          <form class="mx-3" id="productForm" method="post" enctype="multipart/form-data">
                              <div class="row">
                                  <div class="col-lg-6 col-12">
@@ -119,6 +121,8 @@
                                          <div class="form-group col-lg-6 w-100" id="previewImg">
                                              <img src="<?php echo $getData['img']; ?>" alt="" class="img-fluid" width="50px" height="44px">
                                          </div>
+
+
                                      </div>
 
 
@@ -170,11 +174,32 @@
                                      </div>
                                  </div>
                                  <div class="col-lg-6 col-12">
-                                     <h6 class="text-danger text-capitalize font-weight-bold"> </h6>
-                                     <h6> <?php echo $btnName; ?> </h6>
-                                     <button name="submit" id="addproduct" class="btn text-uppercase font-weight-bold btn-primary  w-100" style=" letter-spacing: 5px; padding:15px 0;"><?php echo $btnName; ?></button>
+                                     <div class="form-group">
+                                         <label for="exampleInputEmail1">Best Seller</label>
+                                         <select name="bestSeller" id="bestSeller" class="form-control">
+                                          
+                                          <?php 
+                                          if ($bestSeller==1) {
+                                              echo '<option selected value="1">Yes</option>
+                                                    <option value="0">No</option>';
+                                          }elseif ( $bestSeller ==0) {
+                                            echo '<option  value="1">Yes</option>
+                                                   <option selected value="0">No</option>';
+                                          }elseif ($bestSeller=="22"){
+                                            echo '
+                                                  <option selected >Select</option>
+                                                  <option   value="1">Yes</option>
+                                                  <option   value="0">No</option>';   
+                                          }
+                                          ?>
+                                         </select>
+                                     </div>
+
 
                                  </div>
+                                 <h6 class="text-danger text-capitalize font-weight-bold"> </h6>
+                                
+                                 <button name="submit" id="addproduct" class="btn text-uppercase my-3 font-weight-bold btn-primary  w-25" style=" letter-spacing: 5px; padding:15px 0;"><?php echo $btnName; ?></button>
                              </div>
                              <p id="msgPara" class="text-capitalize">hello </p>
                          </form>
@@ -201,7 +226,7 @@
                      });
 
                      $.ajax({
-                         url: "addProduct.php", 
+                         url: "addProduct.php",
                          type: "POST",
                          async: "true",
                          data: new FormData(this),
@@ -215,58 +240,58 @@
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                 setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
-                                  
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
+
                              } else if (data == 0) {
                                  $('#msgPara').text("Product Not added to database");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                   setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
                              } else if (data == 3) {
                                  $('#msgPara').text("Product Updated Successfully");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                   setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
                              } else if (data == 4) {
                                  $('#msgPara').text("Product not Updated ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                   setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
                              } else if (data == 404) {
                                  $('#msgPara').text("Fill All details ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                   setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
                              } else if (data == 6) {
                                  $('#msgPara').text("Invalid Image Selected ");
                                  $('#msgPara').fadeIn(1000);
                                  setTimeout(() => {
                                      $('#msgPara').fadeOut(1000);
                                  }, 2000);
-                                   setTimeout(function  () {
-                                    location.reload();
-                                 },3000);
+                                 setTimeout(function() {
+                                     location.reload();
+                                 }, 3000);
                              }
                          }
-                          
+
 
                      })
                  });

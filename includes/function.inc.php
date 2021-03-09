@@ -11,7 +11,7 @@ function prx($arr){
     die();
 }
 
-function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort=''){
+function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort='',$bestSeller=''){
     
     $sql = "select product.* , categories.categories from product , categories where product.status='active' ";
    
@@ -22,7 +22,10 @@ function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$so
         $sql = $sql ." and product.id = $product_id ";
     }
 
-   
+    if ($bestSeller !="") {
+        $sql = $sql ." and product.best_seller = '1' ";
+    }
+
     $sql = $sql." and product.categories_id=categories.id ";
 
     if ($str !="") {
