@@ -71,6 +71,83 @@
      </div>
  </section>
  <p id="msgActive" class="text-capitalize"> </p>
+
+ <!-- category table ends -->
+
+ <!-- Subcategory table -->
+ <section>
+     <div class="container-fluid " id="Sub_categoryTable">
+         <div class="row mb-5 ">
+             <div class="col-xl-10 col-lg-9  col-md-8 ml-md-auto">
+                 <div class="row">
+                     <div class="col-12">
+                         <h3 class="text-muted text-start font-weight-bold my-3 mb-3">Sub Categories </h3>
+                         <h6 class="text-muted mx-3 text-start font-weight-bold my-3 mb-3"> <a href="manageSubCategory.php">Add SubCategories</a></h6>
+                         <table class="table table-fluid bg-light text-center  table-striped">
+                             <thead>
+                                 <tr class="text-muted">
+
+                                     <th>#</th>
+                                     <th> Sub Category</th>
+                                     <th>Category Id</th>
+                                     <th>Status</th>
+                                     <th colspan="2" width="10%">Operations</th>
+                                 </tr>
+                             </thead>
+                            
+                           
+                             <tbody>
+                                 <?php
+
+                                    $sql = "select  sub_categories.* , categories.categories from categories , sub_categories where categories.id = sub_categories.category_id";
+                                  
+                                    $res = mysqli_query($conn, $sql);
+                                    $i = 0;
+                                    while ($data = mysqli_fetch_assoc($res)) {
+                                        $i++;
+                                       
+                                     
+ ?>
+                                     <tr>
+
+                                         <td> <?php echo  $i; ?></td>
+                                         <td><?php echo $data['subCat'] ?></td>
+                                         <td><?php echo $data['categories'] ?></td>
+                                         <?php
+                                            $status = $data['status'];
+                                            if ($status == "active") {
+                                                $bgcolor = "bg-info";
+                                            } else {
+                                                $bgcolor = "bg-danger";
+                                            }
+                                            ?>
+                                         <td>
+                                             <p class="status  <?php echo $bgcolor; ?> text-white" style="cursor:pointer; " id="<?php echo $data['id']; ?>"><?php echo $data['status'] ?></p>
+                                         </td>
+
+                                         <td><a href="manageSubCategory.php?catid=<?php echo $data['id']; ?>" class=" bg-warning link text-white p-2"><i class="fas fa-edit"></i></a></td>
+
+                                         <td><a href="admin.php?type=delete&id=<?php echo $data['id']; ?>" class=" bg-danger link text-white p-2"><i class="fas fa-trash-alt"></i></a></td>
+
+                                     </tr>
+                                 <?php
+                                    }
+                                    ?>
+
+                             </tbody>
+
+                         </table>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+     </div>
+     </div>
+ </section>
+ <p id="msgActive" class="text-capitalize"> </p>
+
+ <!-- category table ends -->
  <!--Product table--->
  <section>
 

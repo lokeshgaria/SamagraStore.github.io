@@ -47,12 +47,11 @@ if (isset($_GET['id'])) {
     $cat_id = $_GET['id'];
     $select = mysqli_query($conn, "select * from product where categories_id = '$cat_id'");
     $fetdata = mysqli_fetch_assoc($select);
-     
+
     $metatitle = $fetdata['meta_title'];
     $metaDesc = $fetdata['meta_desc'];
-    $metaKey = $fetdata['meta_keyword'];   
-}
-else{
+    $metaKey = $fetdata['meta_keyword'];
+} else {
     $metatitle = "Apex Mart";
 }
 
@@ -66,7 +65,7 @@ else{
     <meta name="keywords" content="<?php echo $metaKey; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://image.freepik.com/free-vector/aries-head-symbol_91-8232.jpg" type="image/x-icon">
-    <title><?php echo $metatitle ;?></title>
+    <title><?php echo $metatitle; ?></title>
 
     <!-- jQuery cdn-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -137,7 +136,17 @@ else{
                             $getcatquerry = "select * from categories where status = 'active'";
                             $cat_res = mysqli_query($conn, $getcatquerry);
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
-                                <li><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?></a> </li>
+                                <li id="<?php echo $row['id']; ?>"><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?>
+                                        <ul id="subCatDrop">
+                                            <?php
+                                            $cat_id = $row['id'];
+                                            $select = mysqli_query($conn, "select * from sub_categories where category_id=$cat_id");
+
+                                            while ($getSub = mysqli_fetch_assoc($select)) { ?>
+                                                <li><?php  echo $getSub['subCat'] ?></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </a> </li>
                             <?php  } ?>
 
                             <li><a class=" nav-link text-uppercase" href="#contactus">Contact us</a>

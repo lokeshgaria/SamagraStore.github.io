@@ -17,11 +17,15 @@
         $id = $_GET['id'];
         $attr = "value";
         $btnName = "Update Product";
-        $selectData = mysqli_query($conn, "select * from product where id='$id'");
-        $count = mysqli_num_rows($selectData);
+        $selectData = mysqli_query($conn, "select product.* , sub_Categories.subCat FROM product , sub_categories where sub_Categories.id=product.subCategory and product.id='$id'");
+           $count = mysqli_num_rows($selectData);
         if ($count > 0) {
             $getData = mysqli_fetch_assoc($selectData);
-
+            
+            echo "<pre>";
+            print_r($getData);
+            $subCategory = $getData['subCat'];
+            $subCategoryId = $getData['subCategory'];
             $name = $getData['name'];
             $mrp = $getData['mrp'];
             $price = $getData['price'];
@@ -34,7 +38,7 @@
             $bestSeller = $getData['best_seller'];
         } else { ?>
          <script>
-             window.location.replace('http://localhost/SamagraStore.github.io/adminPanel/admin.php');
+            // window.location.replace('http://localhost/SamagraStore.github.io/adminPanel/admin.php');
          </script>
  <?php    }
     }
@@ -76,6 +80,26 @@
                                                     ?>
 
                                              <?php } ?>
+                                         </select>
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-6 col-12">
+                                     <div class="form-group " id="subcat">
+                                         <label for="exampleInputEmail1"> Select SubCategory</label>
+                                         <select name="subCategory" class="form-control" id="SelectSubcategory">
+                                          <?php 
+                                          if (isset($subCategory)) { ?>
+                                               <option value="<?php echo $subCategoryId; ?>"><?php echo $subCategory; ?></option>
+                                          <?php }
+                                          else{ 
+                                             
+                                              ?>
+                                            <option value=" ">select Sub Category</option> 
+                                       
+                                       <?php   }
+                                          ?>
+                                             
+                                            
                                          </select>
                                      </div>
                                  </div>
@@ -211,6 +235,20 @@
      <?php include "includes/footer.inc.php"; ?>
      <script>
          $(document).ready(function() {
+
+            $('#Selectcategory').on("change" , function  () {
+                var catid = this.value;
+                $.ajax({
+                    url :"setSubcat.php",
+                    type : "POST",
+                    data : {
+                        catid : catid
+                    },
+                    success: function  (result) {
+                        $('#SelectSubcategory').html(result);
+                    }
+                })
+            })
              //add new product to database 
 
              $('#addproduct').on("click", function() {

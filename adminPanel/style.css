@@ -666,6 +666,9 @@ transform: translateY(-2px);
 #orderTable{
   display: none;
 }
+#Sub_categoryTable{
+  display: none;
+}
 
 /* Product Status */
 .productStatusActive{

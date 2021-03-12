@@ -13,6 +13,11 @@
     left: 1223px;
     cursor: pointer;
 }
+
+#subCatDrop{
+    display: inline;
+    list-style: none;
+}
 #hoverList{
      
     width: 32%;
@@ -264,6 +269,7 @@ html{
  left: 50%;
  transform: translate(-50% , -50%);
 }
+
 #cartNotification{
     display: inline;
     padding: 0px 5px;

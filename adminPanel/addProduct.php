@@ -5,7 +5,8 @@ $password = "";
 $database = "mystore";
 
 $conn = mysqli_connect($server, $username, $password, $database);
-
+ 
+ 
 $pname = $_POST['pname'];
 $pname = trim($pname);
 
@@ -37,7 +38,7 @@ $metaKeyword = $_POST['meta_keyword'];
 $metaKeyword = trim($metaKeyword);
 
 $bestSeller = $_POST['bestSeller'];
-
+$subcategory = $_POST['subCategory'];
  
 $id = $_POST['id'];
 
@@ -52,7 +53,7 @@ if (!empty($pname) || !empty($category) || !empty($mrp) || !empty($price) || !em
 
         if ($_FILES['image']['name'] == "") {
 
-            $updateProduct = mysqli_query($conn, "UPDATE `product` SET  `categories_id`='$category',`name`='$pname',`mrp`='$mrp',`price`='$price',`qty`='$qty', `short_desc`='$shortDesc',`description`='$description',`meta_title`='$meta_title',`meta_desc`='$metaDesc',`meta_keyword`='$metaKeyword' ,`best_seller`='$bestSeller' WHERE product.id=$id");
+            $updateProduct = mysqli_query($conn, "UPDATE `product` SET  `categories_id`='$category',`name`='$pname',`mrp`='$mrp',`price`='$price',`qty`='$qty', `short_desc`='$shortDesc',`description`='$description',`meta_title`='$meta_title',`meta_desc`='$metaDesc',`meta_keyword`='$metaKeyword' ,`subCategory`='$subcategory',`best_seller`='$bestSeller' WHERE product.id=$id");
 
 
             if ($updateProduct) {
@@ -70,7 +71,7 @@ if (!empty($pname) || !empty($category) || !empty($mrp) || !empty($price) || !em
                 $uploadPath = "products/" . $newFilename;
               
 
-                $updateProduct = mysqli_query($conn, "UPDATE `product` SET  `categories_id`='$category',`name`='$pname',`mrp`='$mrp',`price`='$price',`qty`='$qty',`img`='$uploadPath',`short_desc`='$shortDesc',`description`='$description',`meta_title`='$meta_title',`meta_desc`='$metaDesc',`meta_keyword`='$metaKeyword' ,`best_seller`='$bestSeller' WHERE product.id=$id");
+                $updateProduct = mysqli_query($conn, "UPDATE `product` SET  `categories_id`='$category',`name`='$pname',`mrp`='$mrp',`price`='$price',`qty`='$qty',`img`='$uploadPath',`short_desc`='$shortDesc',`description`='$description',`meta_title`='$meta_title',`meta_desc`='$metaDesc',`meta_keyword`='$metaKeyword' ,`subCategory`='$subcategory',`best_seller`='$bestSeller' WHERE product.id=$id");
 
 
                 if ($updateProduct) {
@@ -93,7 +94,9 @@ if (!empty($pname) || !empty($category) || !empty($mrp) || !empty($price) || !em
             $uploadPath = "products/" . $newFilename;
          
 
-            $insertQry = mysqli_query($conn, "INSERT INTO `product`(`id`, `categories_id`, `name`, `mrp`, `price`, `qty`, `img`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`,`best_seller`) VALUES (Null,$category,'$pname','$mrp','$price','$qty','$uploadPath','$shortDesc','$description','$meta_title','$metaDesc','$metaKeyword','active','$bestSeller')");
+            
+
+            $insertQry = mysqli_query($conn, "INSERT INTO `product`(`id`, `categories_id`, `subCategory` ,`name`, `mrp`, `price`, `qty`, `img`, `short_desc`, `description`, `meta_title`, `meta_desc`, `meta_keyword`, `status`,`best_seller`) VALUES (Null, '$category' , '$subcategory' ,'$pname','$mrp','$price','$qty','$uploadPath','$shortDesc','$description','$meta_title','$metaDesc','$metaKeyword','active','$bestSeller')");
 
             if ($insertQry) {
                 echo 1;

@@ -78,6 +78,10 @@ if (isset($_GET['delete_id'])) {
                         <ul class="navbar-nav  flex-column mt-2">
                             <li class="nav-item w-100"><a href="#" id="category" class="text-light nav-link mb-2 current  " style="padding : 7px 0 ;"><i class="fas fa-home  fa-lg mx-2 text-light"></i>Categories Master</a>
                             </li>
+
+                            <li class="nav-item w-100"><a href="#" id="subCat" class="text-light nav-link mb-2 sidebar-link "> <i class="fas fa-tags   fa-lg mx-2 text-light"></i>Sub Category</a>
+                            </li>
+
                             <li class="nav-item w-100"><a href="#" id="product" class="text-light nav-link mb-2 sidebar-link "> <i class="fas fa-tshirt  fa-lg mx-2 text-light"></i>Product Master</a>
                             </li>
 
