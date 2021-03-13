@@ -22,8 +22,7 @@
         if ($count > 0) {
             $getData = mysqli_fetch_assoc($selectData);
             
-            echo "<pre>";
-            print_r($getData);
+         
             $subCategory = $getData['subCat'];
             $subCategoryId = $getData['subCategory'];
             $name = $getData['name'];

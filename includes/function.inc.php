@@ -11,7 +11,7 @@ function prx($arr){
     die();
 }
 
-function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort='',$bestSeller=''){
+function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort='',$bestSeller='' ,$subCatId=''){
     
     $sql = "select product.* , categories.categories from product , categories where product.status='active' ";
    
@@ -20,6 +20,10 @@ function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$so
     }
     if ($product_id !="") {
         $sql = $sql ." and product.id = $product_id ";
+    }
+
+    if ($subCatId !="") {
+        $sql = $sql ." and product.subCategory = $subCatId ";
     }
 
     if ($bestSeller !="") {
@@ -44,7 +48,7 @@ function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$so
         $sql = $sql." limit $limit ";
     }
  
-    
+     
     $run = mysqli_query($conn , $sql);
     $productData = array();
     while($row = mysqli_fetch_assoc($run)){

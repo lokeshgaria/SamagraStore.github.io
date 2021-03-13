@@ -136,16 +136,19 @@ if (isset($_GET['id'])) {
                             $getcatquerry = "select * from categories where status = 'active'";
                             $cat_res = mysqli_query($conn, $getcatquerry);
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
-                                <li id="<?php echo $row['id']; ?>"><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?>
-                                        <ul id="subCatDrop">
+                                <li class="drop" ><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?>
+                                       
+                                       <ul class="dropdown" id="subCatDrop">
                                             <?php
                                             $cat_id = $row['id'];
                                             $select = mysqli_query($conn, "select * from sub_categories where category_id=$cat_id");
 
                                             while ($getSub = mysqli_fetch_assoc($select)) { ?>
-                                                <li><?php  echo $getSub['subCat'] ?></li>
+                                                <li><a class="text-dark link" href="categories.php?id=<?php echo $cat_id ?>&sub_cat=<?php echo $getSub['id'];?>"><?php  echo $getSub['subCat'] ?></a></li>
                                             <?php } ?>
-                                        </ul>
+                                        </ul>  
+                                     
+                                        
                                     </a> </li>
                             <?php  } ?>
 

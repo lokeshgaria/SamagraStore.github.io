@@ -1,6 +1,13 @@
 <?php
 include "includes/headers.inc.php"; 
-$cat_id = $_GET['id'];
+$cat_id   = $_GET['id'];
+ 
+if (isset($_GET['sub_cat'])) {
+    $subCatId = $_GET['sub_cat'];
+    
+}else{
+    $subCatId="";
+}
 $catname = mysqli_query($conn, "select categories from categories where id='$cat_id' ");
 $name  = mysqli_fetch_assoc($catname);
 $sortdata = "";
@@ -58,7 +65,7 @@ if (isset($_GET['sort'])) {
     <!-- Row one -->
     <div class="row " id="featured-product">
         <?php
-        $catData = get_product($conn, '', $cat_id, '', '', $sortdata);
+        $catData = get_product($conn, '', $cat_id, '', '', $sortdata,"",$subCatId);
         if (count($catData) > 0) {
             foreach ($catData as   $value) { ?>
 
