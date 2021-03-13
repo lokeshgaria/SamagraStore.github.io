@@ -76,7 +76,7 @@ if (count($_SESSION['cart']) == "0") {
         <div id="empty_cart" style="display:  <?php echo $display; ?>;">
             <div class="d-flex justify-content-center py-3 " style="position: absolute;left: 51%; top: 65%;">
                 <h4 class="text-capitalize font-roboto">your cart is currently empty. </h4>
-                <a href="index.php" class="btn btn-outline-primary font-roboto  " style="position: absolute;top: 48px;left: 2px;">Return to shop</a>
+                <a href="index.php" class="btn btn-outline-primary font-roboto  " id="cartMsg">Return to shop</a>
             </div>
         </div>
 

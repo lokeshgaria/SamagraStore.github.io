@@ -16,11 +16,15 @@ if (isset($_SESSION['username'])) {
     $toggle = '<i class="fas fa-sign-out-alt" data-toggle="tooltip" title="logout" data-placement="bottom" > </i>';
     $display = "inline-block";
     $uid = $_SESSION['user_id'];
+    $dropdown = "block";
+    $signin = "none";
     $seleWish = mysqli_query($conn, "select * from wishlist where user_id='$uid'");
     $wishCount = mysqli_num_rows($seleWish);
 } else {
     $userName = "SignIn/Register";
     $toggle = "";
+    $dropdown = "none";
+    $signin = "inline-block";
     $wishlist = "none";
     $display = "none";
     $wishCount = "";
@@ -104,19 +108,25 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class=" col-lg-6 col-md-6 col-9 text-right links ml-auto ">
                     <div>
-                        <p class="text-white  site-title m-3 text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="registerSignup.php" class="text-white" style="text-decoration:none"> <?php echo $userName; ?></a>
+                       
 
-                        <p class="text-white  site-title text-capitalize d-inline" style="position: relative;top: 22px;font-weight: normal; text-decoration:none"><a href="myorder.php" class="text-white" style="text-decoration:none ; display: <?php echo $display; ?>">My order</a>
+                        <div class="dropdown">
+                            <button class="btn  m-3 primary-color dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $userName; ?>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a  style="display: <?php echo $dropdown; ?>;" class="dropdown-item" href="dashboard.php"><img src="https://www.flaticon.com/svg/vstatic/svg/3563/3563395.svg?token=exp=1615634177~hmac=dfef89aca6bf5ae8651a994a963d1546" alt="" width="20px"> Dashboard</a>
+                                <a  style="display: <?php echo $dropdown; ?>;"  class="dropdown-item" href="myorder.php"><img src="https://www.flaticon.com/svg/vstatic/svg/3500/3500833.svg?token=exp=1615634435~hmac=c449849e600cec35fdac2d8b05a2b783" alt="" width="20px"> My order</a>
+                              
+                                <a style="display: <?php echo $dropdown; ?>;" href="logout.php" class="dropdown-item" ><img src="https://www.flaticon.com/svg/vstatic/svg/1716/1716282.svg?token=exp=1615634477~hmac=4e240791a2f590fba86bce42dcd6866a" alt="" width="20px"> Log out</a>
 
-
-
-                            <a href="logout.php" class="text-white  m-3 "><?php echo $toggle; ?></a>
-                        </p>
-
-
+                                <a class="dropdown-item" href="registerSignup.php" style="display :<?php echo $signin; ?>"> <img src="https://www.flaticon.com/svg/vstatic/svg/2749/2749040.svg?token=exp=1615634780~hmac=e5f638dcd096418dfdaa7822c0cc4f01" alt="" width="20px"> sign in</a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+
             </div>
         </div>
         <!--  Navbar   -->
@@ -136,19 +146,19 @@ if (isset($_GET['id'])) {
                             $getcatquerry = "select * from categories where status = 'active'";
                             $cat_res = mysqli_query($conn, $getcatquerry);
                             while ($row = mysqli_fetch_assoc($cat_res)) { ?>
-                                <li class="drop" ><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?>
-                                       
-                                       <ul class="dropdown" id="subCatDrop">
+                                <li class="drop"><a class="  nav-link text-uppercase" href="categories.php?id=<?php echo $row['id']; ?>"><?php echo $row['categories'] ?>
+
+                                        <ul class="dropdown" id="subCatDrop">
                                             <?php
                                             $cat_id = $row['id'];
                                             $select = mysqli_query($conn, "select * from sub_categories where category_id=$cat_id");
 
                                             while ($getSub = mysqli_fetch_assoc($select)) { ?>
-                                                <li><a class="text-dark link" href="categories.php?id=<?php echo $cat_id ?>&sub_cat=<?php echo $getSub['id'];?>"><?php  echo $getSub['subCat'] ?></a></li>
+                                                <li><a class="text-dark link" href="categories.php?id=<?php echo $cat_id ?>&sub_cat=<?php echo $getSub['id']; ?>"><?php echo $getSub['subCat'] ?></a></li>
                                             <?php } ?>
-                                        </ul>  
-                                     
-                                        
+                                        </ul>
+
+
                                     </a> </li>
                             <?php  } ?>
 

@@ -101,6 +101,17 @@
 
 
         })
+        $('#profile').hover(
+				
+                function () {
+                   $('#dropdownProfile').css({"visibility":"visible"});
+                }, 
+                 
+                function () {
+                   $('#dropdownProfile').css({"visibility":"hidden"});
+                }
+             );
+         
     });
 </script>
 <script>

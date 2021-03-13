@@ -61,6 +61,7 @@ if (isset($_GET['sort'])) {
                 <option value="old" <?php echo $old_select; ?>>Filter by old products</option>
             </select>
         </div>
+        <input type="hidden" name="qty" id="qty" value="1">
     </div>
     <!-- Row one -->
     <div class="row " id="featured-product">
