@@ -1,5 +1,6 @@
 <?php include "includes/headers.inc.php";
 // pre($_SESSION['cart']);
+ 
 $display = "none";
 
 ?>

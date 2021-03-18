@@ -56,3 +56,11 @@ function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$so
     };
     return $productData;
 }
+
+function getProductByProductid($conn , $pid){
+$sql = "select sum(orders_details.qty) as qty from orders_details , orders where orders_details.order_id =orders.id and orders_details.product_id='$pid' and orders.order_status!='canceled'";
+ 
+$run = mysqli_query($conn , $sql);
+$row = mysqli_fetch_assoc($run);
+return $row['qty'];
+}

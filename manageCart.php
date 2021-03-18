@@ -6,15 +6,29 @@
 $qty = $_POST['qty'];
 $pid = $_POST['id'];
 $type = $_POST['type'];
+$saledproduct = getProductByProductid($conn , $pid);
+  
 
+$selectProductQuantity = mysqli_query($conn ,"select qty from product where  id =$pid ");
+$get = mysqli_fetch_assoc($selectProductQuantity);
+ $qtyDb = $get['qty'];
  
- 
- 
-$object = new add_cart();
-if ($type=='add') {
-    $object->add_to_cart($pid,$qty);
-   
+ $availableQty = $qtyDb-$saledproduct;
+
+ $object = new add_cart();
+
+ if($availableQty>0){
+    if ($type=='add') {
+        $object->add_to_cart($pid,$qty);
+       
+    }
+    echo  $object->totalProduct();
+} else{
+   echo "0";
+   die();
 }
+
+
 
 if ($type=='remove') {
     $object->remove_fromCart($pid);
@@ -22,5 +36,10 @@ if ($type=='remove') {
 if ($type=='update') {
     $object->update_cart($pid,$qty);
 }
-echo  $object->totalProduct();
+
+
+
+  
+
+
 ?>

@@ -7,7 +7,7 @@ if (count($_SESSION['cart']) == "0") {
 } else {
     $display = "none";
     $button = "visible";
-} 
+}
 ?>
 
 <main>
@@ -31,12 +31,14 @@ if (count($_SESSION['cart']) == "0") {
                     </tr>
 
                     <?php
-             $i =0;
- foreach ($_SESSION['cart'] as $key => $value) {
-                        $i++;     
+                    $i = 0;
+                    foreach ($_SESSION['cart'] as $key => $value) {
+                        $i++;
                         $cartdata = get_product($conn, "", "", $key);
                         $pname = $cartdata[0]['name'];
+                        $dbqty=$cartdata[0]['qty'];
                         $mrp = $cartdata[0]['mrp'];
+                        $pid = $cartdata[0]['id'];
                         $price = $cartdata[0]['price'];
                         $img = $cartdata[0]['img'];
                         $qty = $value['qty'];
@@ -50,10 +52,19 @@ if (count($_SESSION['cart']) == "0") {
                                 <span><s><?php echo $mrp; ?></s> <?php echo $price; ?></span>
                             </td>
                             <td><?php echo $price; ?></td>
+                            <?php
+ 
+                          
+                            $productQty = getProductByProductid($conn, $pid);
+                            
+                            $maxlength = $dbqty-$productQty;
+                            
+                            ?>
                             <td>
-                                <center><input minlength="1" type="number" name="qty" id="<?php echo $key; ?>qty" value="<?php echo $qty; ?>" class="form-control  " style="width: 59px;" onchange="manage_cart(<?php echo $key; ?>,'update')">
+                                <center><input type="number" name="qty" id="<?php echo $key; ?>qty" value="<?php echo $qty; ?>" class="form-control  " style="width: 59px;" onchange="manage_cart(<?php echo $key; ?>,'update')" min="1" max="<?php echo  $maxlength?>">
 
                                 </center>
+
                             </td>
                             <td><?php echo $price * $qty ?></td>
 

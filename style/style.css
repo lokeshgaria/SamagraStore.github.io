@@ -1,12 +1,79 @@
 /*------- google fonts --------*/
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:ital@1&family=Roboto&family=Sofia&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 #searchinput {
   background: #f8f9fa;
   width: 99%;
   border-radius: 25px;
 }
+.font-lato{
+  font-family: 'Lato', sans-serif;
+}
+/*chat img logo */
+.chat{
+  position: fixed;
+  top: 91%;
+  left: 95%;
+  width: 43px;
+  padding: 4px;
+  background: white;
+  cursor: pointer;
+  border-radius: 26px;
+}
+.stage {
+  border-bottom: 3px solid #444;
+  display: flex;
+  height: 330px;
+  width: 100%;
+}
+.box {
+  align-self: flex-end;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  
+  transform-origin: bottom;
+  
+}
+.bounce-7 {
+  animation-name: bounce-7;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bounce-7 {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-18px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+/**chat bot */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+.userMsg{
+    padding: 6px 9px;
+    border: 1px solid #ced4da;
+    width: auto;
+    margin-left: auto;
+    text-align: left;
+    display: inline;
+}
+li{
+    list-style: none;
+}
+.radius{
+    border-radius: 0 !important;
+}
+.font{
+    font-family: 'Lato', sans-serif;
+}
 
+.ModelBody{
+     max-height: 47vh;
+    overflow-y: scroll;
+}
+#typing{
+    display: none;
+}
 li.drop ul.dropdown {
   background: #f8f9fa none repeat scroll 0 0;
   box-shadow: 0 0 0px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 10%);
@@ -41,10 +108,10 @@ li.drop ul.dropdown li {
 }
 
 #hoverList {
-  width: 32%;
+  width: 40%;
   position: absolute;
   top: 9px;
-  left: 178px;
+  left: 97px;
   list-style: none;
 }
 #hoverList li {

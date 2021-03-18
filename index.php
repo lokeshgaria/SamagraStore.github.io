@@ -28,21 +28,22 @@ include "includes/headers.inc.php";
     <!-- first slider ends-->
     <!-- New Arrivals start here -->
     <div class="container " id="featured-product">
-        <h3 class=" text-center text-capitalize my-5 border-bottom">new arrivals</h3>
+        <h3 class=" text-center font-gugi text-capitalize my-5 border-bottom">new arrivals</h3>
         <div class="row ">
             <?php
-            $productData = get_product($conn, 4);
+            $productData = get_product($conn, 6);
             foreach ($productData as  $value) {  ?>
-              
-                <div class="col-lg-3 col-sm-3 text-center col-6">
+
+                <div class="col-lg-2 col-sm-2 text-center col-6">
+
                     <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
                     <div>
-                    <input type="hidden" name="" id="qty" value="1">
-                    <ul class="" id="hoverList">
-                        <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
-                    </ul>
-                </div>
+                        <input type="hidden" name="" id="qty" value="1">
+                        <ul class="" id="hoverList">
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
                     <div>
                         <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
@@ -57,24 +58,24 @@ include "includes/headers.inc.php";
     </div>
     <!-- New Arrivals ends here -->
 
-   
- <!-- New Arrivals start here -->
- <div class="container " id="featured-product">
-        <h3 class=" text-center text-capitalize my-5 border-bottom">best Seller</h3>
+
+    <!-- New Arrivals start here -->
+    <div class="container " id="featured-product">
+        <h3 class=" text-center font-gugi text-capitalize my-5 border-bottom">best Seller</h3>
         <div class="row ">
             <?php
-            $productData = get_product($conn,'4','','','','','yes');
+            $productData = get_product($conn, '6', '', '', '', '', 'yes');
             foreach ($productData as  $value) {  ?>
-              
-                <div class="col-lg-3 col-sm-3 text-center col-6">
+
+                <div class="col-lg-2 col-sm-2 text-center col-6">
                     <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
                     <div>
-                    <input type="hidden" name="" id="qty" value="1">
-                    <ul class="" id="hoverList">
-                        <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
-                        <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
-                    </ul>
-                </div>
+                        <input type="hidden" name="" id="qty" value="1">
+                        <ul class="" id="hoverList">
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
                     <div>
                         <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
@@ -91,10 +92,10 @@ include "includes/headers.inc.php";
 
     <!--  about us  Starts here -->
     <div class="container" id="aboutus">
-        <h1 class="font-gugi text-success text-center my-5  "> About Us </h1>
+        <h3 class="font-gugi   text-center my-5  "> About Us </h3>
         <div class="row py-3">
             <div class="col-lg-4 col-sm-3 col-12 shift">
-                <img src="./images/gallery-1.jpg" alt="" class="img-fluid " style="border-radius:972px;">
+                <img src="./images/freelancer.jpg " alt="" class="img-fluid ">
 
             </div>
             <div class="col-lg-8 col-sm-8 col-12 shift ">
@@ -104,10 +105,13 @@ include "includes/headers.inc.php";
                     maiores? Nihil quod quaerat repellendus reiciendis, culpa ex pariatur?</p>
                 <div class="mx-5">
                     <h6 class="  font-roboto text-capitalize font-weight-bold my-3">Let's share some ideas</h6>
-                    <a href="https://www.facebook.com/lokesh.on.9" class="nav-link d-inline text-primary"><i class="fab fa-2x fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/web_tag_/" class="nav-link d-inline text-danger "><i class="fab fa-2x fa-instagram"></i></a>
-                    <a href="#" class="nav-link d-inline"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="https://github.com/lokeshgaria" class="nav-link d-inline text-dark"><i class="fab fa-2x fa-github"></i></a>
+                    <a href="https://www.facebook.com/lokesh.on.9" class="nav-link d-inline text-primary"><i class="fab fa-2x fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
+
+                    <a href="https://www.instagram.com/web_tag_/" class="nav-link d-inline text-danger "><i class="fab fa-2x fa-instagram" data-toggle="tooltip" data-placement="bottom" title="instagram!"></i></a>
+
+                    <a href="#" class="nav-link d-inline"><i class="fab fa-twitter fa-2x" data-toggle="tooltip" data-placement="bottom" title="twitter"></i></a>
+
+                    <a href="https://github.com/lokeshgaria" class="nav-link d-inline text-dark"><i class="fab fa-2x fa-github" data-toggle="tooltip" data-placement="bottom" title="GitHub"></i></a>
                 </div>
 
             </div>
@@ -116,69 +120,11 @@ include "includes/headers.inc.php";
         </div>
     </div>
     <!--  feedback  ends here -->
-    <!-- collection starts here -->
-    <!--  Second Slider -->
-    <div class="container-fluid py-5  " style="background-color:#dff9fb;">
-        <h1 class="font-roboto text-info text-center   "> Our Collection </h1>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner  ">
-                <div class="carousel-item active">
-                    <div class="row slider-two text-center   ">
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4">
-                            <img src="https://images.pexels.com/photos/923192/pexels-photo-923192.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="img-fluid">
-                            <span class="border site-btn btn-span"> SOFA & CHAIR</span>
-                        </div>
-
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4">
-                            <img src=" https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="img-fluid">
-                            <span class="border site-btn btn-span text-uppercase"> Furniture</span>
-                        </div>
-
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4">
-                            <img src=" https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="img-fluid">
-                            <span class=" border site-btn btn-span text-uppercase"> lighting</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row slider-two text-center ">
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4">
-                            <img src="  https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="img-fluid">
-                            <a href="beats.php"><span class="border site-btn btn-span text-uppercase"> Beats
-                                </span>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4">
-                            <img src=" https://images.pexels.com/photos/1287150/pexels-photo-1287150.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="img-fluid">
-                            <span class="border site-btn btn-span text-uppercase"> appliances</span>
-                        </div>
-
-                        <div class="col-md-4 col-4 col-lg-4 poduct pt-md-5 pt-4 ">
-                            <img src=" https://images.pexels.com/photos/237997/pexels-photo-237997.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="img-fluid">
-                            <span class="border site-btn btn-span text-uppercase"> Hardware</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-    <!--  Second Slider Ends -->
-    <!--collection ends-->
 
 
     <!--contact us -->
     <div class="container-fluid bg-light  primary-color py-5 " id="contactus">
-        <h2 class="font-weight-bold">Contact Us </h2>
+        <h3 class="font-gugi font-weight-bold text-dark text-center">Contact Us </h3>
         <hr class="bg-white">
         <div id="google_map" class="google_map">
             <div class="map_container">
@@ -187,7 +133,7 @@ include "includes/headers.inc.php";
         </div>
         <div class="row my-4">
 
-            <div class="col-lg-3 col-12 bg-dark mx-5 pt-5 ml-auto">
+            <div class="col-lg-3 col-12 bg-dark mx-5 pt-5 text-center ml-auto font-lato">
 
                 <div class="  font-sofia  text-start">
                     <h4>Connect With Us</h4>
@@ -196,8 +142,8 @@ include "includes/headers.inc.php";
 
                 <div class="featured-content">
                     <div class="featured-desc  d-flex ">
-                        <i class="fas fa-3x mt-3 fa-map-marker-alt"></i>
-                        <p class="mx-5" style="color:#fff">501, Silverside Road,<br>
+                        <i class="fas fa-2x mt-3 fa-map-marker-alt"></i>
+                        <p class="mx-4" style="color:#fff">501, Silverside Road,<br>
                             105 Suite Nos.Wilmington City,<br>
                             Delaware 19809 USA</p>
                     </div>
@@ -205,26 +151,28 @@ include "includes/headers.inc.php";
                 <hr class="bg-white">
                 <div class="featured-content">
                     <div class="featured-desc d-flex ">
-                        <i class="fas fa-3x fa-phone-alt"></i>
-                        <p class="mx-5" style="color:#fff"> 24/7 Support<br>
+                        <i class="fas fa-2x fa-phone-alt"></i>
+                        <p class="mx-4" style="color:#fff"> 24/7 Support<br>
                             +91-XXXX-XXXX</p>
                     </div>
                 </div>
                 <hr class="bg-white">
                 <div class="featured-content">
                     <div class="featured-desc d-flex ">
-                        <i class="far fa-3x fa-envelope"></i>
-                        <p class="mx-5" style="color:#fff">shoponline@gmail.com<br>
+                        <i class="far fa-2x fa-envelope"></i>
+                        <p class="mx-4" style="color:#fff">shoponline@gmail.com<br>
 
                     </div>
                 </div>
                 <hr class="bg-white">
 
                 <div class="d-flex justify-content-start">
-                    <a class="nav-link text-white" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="nav-link   text-white" href=""><i class="fab fa-google-plus"></i></a>
-                    <a class="nav-link text-white" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="nav-link text-white" href=""><i class="fab fa-facebook"></i></a>
+                    <a class="nav-link text-white" href=""><i class="fab fa-linkedin-in" data-toggle="tooltip" data-placement="bottom" title="
+                    
+                    linkedIn!"></i></a>
+                    <a class="nav-link   text-white" href=""><i class="fab fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Gmail"></i></a>
+                    <a class="nav-link text-white" href=""><i class="fab fa-twitter" data-toggle="tooltip" data-placement="bottom" title="twitter"></i></a>
+                    <a class="nav-link text-white" href=""><i class="fab fa-facebook" data-toggle="tooltip" data-placement="bottom" title="HoFacebook"></i></a>
 
                 </div>
 
@@ -263,7 +211,7 @@ include "includes/headers.inc.php";
                         <div class="row">
 
                             <div class="col-lg-12 col-12">
-                                <input type="button" class="btn btn-primary w-100 text-uppercase font-weight-bold font-roboto " id="feedbackbutton" style=" letter-spacing: 5px; " name="submit" value="submit">
+                                <input type="button" class="btn btn-primary w-25 text-uppercase font-weight-bold font-roboto " id="feedbackbutton" style=" letter-spacing: 5px; " name="submit" value="submit">
                             </div>
                         </div>
 
@@ -283,32 +231,50 @@ include "includes/headers.inc.php";
     <div class="brand bg-light  my-5">
         <h3 class="font-gugi text-success text-capitalize text-center py-3 border-bottom "> our business partners
         </h3>
-        <div class="container-fluid py-5">
+        <div class="container-fluid py-5 col-11">
 
             <div class="row">
-                <div class="col-2 col-lg-2">
-                    <img src="images/logo-coca-cola.png" alt="brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src="https://banner2.cleanpng.com/20180802/lwr/kisspng-armani-logo-portable-network-graphics-fashion-desi-ga-logosu-4-y%C4%B1ld%C4%B1z-252-252-drm-pictures-free-5b631c6946e523.5793332515332219932904.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-2">
-                    <img src="images/logo-godrej.png" alt="brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-2">
-                    <img src="images/logo-paypal.png" alt="brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-2">
-                    <img src=" images/logo-coca-cola.png" alt=" brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
                 </div>
-                <div class="col-2 col-lg-2">
-                    <img src="images/logo-oppo.png" alt="brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src="https://i.pinimg.com/originals/ac/37/53/ac37539083035da7f45bc6dd29424187.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-2">
-                    <img src="images/logo-godrej.png" alt="brand logo" class="img-fluid">
+                <div class="col-2 col-lg-1">
+                    <img src="https://www.pngfind.com/pngs/m/551-5510928_prada-logo-png-prada-logo-transparent-png.png" alt="brand logo" class="img-fluid">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
+                </div>
+                <div class="col-2 col-lg-1">
+                    <img src="https://www.pngfind.com/pngs/m/551-5510928_prada-logo-png-prada-logo-transparent-png.png" alt="brand logo" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
     <!-- Brands ends start here -->
-
+  
 </main>
 
 <?php

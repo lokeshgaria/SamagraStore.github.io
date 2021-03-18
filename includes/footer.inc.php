@@ -1,4 +1,79 @@
 <footer>
+      <!-- Our collection --->
+      <div class="container-fluid col-lg-11 my-5">
+        <h3 class="font-gugi"> Our collections</h3>
+        <div class="row ">
+            <?php
+            $productData = get_product($conn, 6);
+            foreach ($productData as  $value) {  ?>
+
+                <div class="col-lg-2 col-sm-2 text-center col-6">
+
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <div>
+                        <input type="hidden" name="" id="qty" value="1">
+                        <ul class="" id="hoverList">
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
+                        <div class="flex justify-content-end ">
+                            <span class="text-muted nav-item mx-3"> ₹ <s><?php echo $value['mrp']; ?></s></span>
+                            <span class="text-dark nav-item mx-3">₹<?php echo $value['price']; ?></span>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
+
+        </div>
+    </div>
+    <div  class="">
+       <img src="./images/chat.png" alt="chat logo" class="chat btn box bounce-7" data-toggle="modal" data-target="#exampleModalCenter">
+    </div>
+    <!-- Button trigger modal -->
+ 
+
+    
+             
+                <!-- Button trigger modal -->
+                 
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-capitalize font" id="exampleModalLongTitle">start your conversation here</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-body ModelBody font">
+                                    <ul class="list-group m-2" id="chatwindow">
+
+
+
+
+
+                                    </ul>
+                                    <img src="https://thumbs.gfycat.com/MilkyLateDuiker-size_restricted.gif" alt="" id="typing" width="50px">
+                                    <div class="container-fluid d-flex my-3">
+                                        <input type="text" class="form-control w-100 radius" name="value" id="chat"><span> <button type="button" class="btn btn-primary radius   font" onclick="chatbot()">Send</button></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+  
+
     <div class="footer bg-dark">
         <div class="container py-3">
             <div class="row">
@@ -59,7 +134,13 @@
                 if (type == 'update' || type == 'remove') {
                     window.location.reload();
                 }
-                $('#cartNotification').html(params);
+                if (params == 0) {
+                    alert("Out of stock ");
+                    return false;
+                } else {
+                    $('#cartNotification').html(params);
+                }
+
             }
         })
     }
@@ -102,16 +183,20 @@
 
         })
         $('#profile').hover(
-				
-                function () {
-                   $('#dropdownProfile').css({"visibility":"visible"});
-                }, 
-                 
-                function () {
-                   $('#dropdownProfile').css({"visibility":"hidden"});
-                }
-             );
-         
+
+            function() {
+                $('#dropdownProfile').css({
+                    "visibility": "visible"
+                });
+            },
+
+            function() {
+                $('#dropdownProfile').css({
+                    "visibility": "hidden"
+                });
+            }
+        );
+
     });
 </script>
 <script>
@@ -207,18 +292,69 @@
 
         $.ajax({
             url: "wishlist.php",
-            type : "POST",
+            type: "POST",
             data: {
                 id: ids,
                 type: type
             },
             success: function(data) {
-             window.location.reload();
+                window.location.reload();
             }
         })
 
     }
 </script>
+<script>
+        function chatbot() {
+            let date = new Date();
+            var currHour = date.getHours();
+            var currMin = date.getMinutes();
+            var end = "";
+            if (currHour > 12) {
+                end = "pm";
+                currHour = currHour - 12;
+                currHour = currHour + ":" + currMin + " " + end;
+            } else {
+                end = "am";
+                currHour = currHour + ":" + currMin + " " + end;
+            }
+
+            var chatValue = document.getElementById('chat').value;
+            if (chatValue) {
+                var tag = `<li class="  text-right">
+                                    <span class="text-muted mx-3">${currHour}</span><span class="font-weight-bold">Me</span>
+                                    <img src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg" alt="" width="50px" class="my-2">
+                                    <br>
+                                    <p class="userMsg ">${chatValue}</p>
+                                </li>`;
+
+                $('#chatwindow').append(tag);
+
+                $.ajax({
+                    url: 'sendchat.php',
+                    type: "POST",
+                    data: {
+                        chat: chatValue
+                    },
+                    success: function(result) {
+                        var tag = `<li class="  text-left"><img src="https://image.freepik.com/free-vector/cute-smiling-robot-bot-modern-flat-cartoon-character-illustration-isolated-white-background-friendly-robot-chat-bot-concept_92289-1389.jpg" alt="" width="50px" class="my-2"><span class="font-weight-bold">Bot</span> <span class="text-muted mx-3">${currHour}</span><br><p class="userMsg text-capitalize ">${result}</p></li>`;
+                        
+                        $('#typing').css("display","block");
+                        setTimeout(function  () {
+                         $('#typing').css("display","none");
+                        },700);
+                        $('#chatwindow').append(tag).delay(2000);
+                        $('.ModelBody').scrollTop($('.ModelBody')[0].scrollHeight);
+                        $('#chat').val('');
+                    }
+                })
+            } else {
+                alert("please enter some text");
+            }
+
+
+        }
+    </script>
 </body>
 
 </html>

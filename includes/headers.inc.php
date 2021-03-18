@@ -83,6 +83,10 @@ if (isset($_GET['id'])) {
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="style/style.css">
     <!--sweet alert -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- fonts style
@@ -115,12 +119,12 @@ if (isset($_GET['id'])) {
                                 <?php echo $userName; ?>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a  style="display: <?php echo $dropdown; ?>;" class="dropdown-item" href="dashboard.php"><img src="https://www.flaticon.com/svg/vstatic/svg/3563/3563395.svg?token=exp=1615634177~hmac=dfef89aca6bf5ae8651a994a963d1546" alt="" width="20px"> Dashboard</a>
-                                <a  style="display: <?php echo $dropdown; ?>;"  class="dropdown-item" href="myorder.php"><img src="https://www.flaticon.com/svg/vstatic/svg/3500/3500833.svg?token=exp=1615634435~hmac=c449849e600cec35fdac2d8b05a2b783" alt="" width="20px"> My order</a>
+                                <a  style="display: <?php echo $dropdown; ?>;" class="dropdown-item" href="dashboard.php"><img src="images/speed.png" alt="" width="20px"> Dashboard</a>
+                                <a  style="display: <?php echo $dropdown; ?>;"  class="dropdown-item" href="myorder.php"><img src="images/order.png" alt="" width="20px"> My order</a>
                               
-                                <a style="display: <?php echo $dropdown; ?>;" href="logout.php" class="dropdown-item" ><img src="https://www.flaticon.com/svg/vstatic/svg/1716/1716282.svg?token=exp=1615634477~hmac=4e240791a2f590fba86bce42dcd6866a" alt="" width="20px"> Log out</a>
+                                <a style="display: <?php echo $dropdown; ?>;" href="logout.php" class="dropdown-item" ><img src="images/logout.png" alt="" width="20px"> Log out</a>
 
-                                <a class="dropdown-item" href="registerSignup.php" style="display :<?php echo $signin; ?>"> <img src="https://www.flaticon.com/svg/vstatic/svg/2749/2749040.svg?token=exp=1615634780~hmac=e5f638dcd096418dfdaa7822c0cc4f01" alt="" width="20px"> sign in</a>
+                                <a class="dropdown-item" href="registerSignup.php" style="display :<?php echo $signin; ?>"> <img src="images/signin.png" alt="" width="20px"> sign in</a>
                             </div>
                         </div>
                     </div>
