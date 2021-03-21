@@ -10,7 +10,7 @@ function prx($arr){
     print_r($arr);
     die();
 }
-
+ 
 function get_product($conn, $limit='' , $cat_id='', $product_id='' , $str='',$sort='',$bestSeller='' ,$subCatId=''){
     
     $sql = "select product.* , categories.categories from product , categories where product.status='active' ";

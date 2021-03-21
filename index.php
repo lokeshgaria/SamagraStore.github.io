@@ -36,7 +36,7 @@ include "includes/headers.inc.php";
 
                 <div class="col-lg-2 col-sm-2 text-center col-6">
 
-                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid" style="width :230px ;height: 230px"> </a>
                     <div>
                         <input type="hidden" name="" id="qty" value="1">
                         <ul class="" id="hoverList">
@@ -68,7 +68,7 @@ include "includes/headers.inc.php";
             foreach ($productData as  $value) {  ?>
 
                 <div class="col-lg-2 col-sm-2 text-center col-6">
-                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"  style="width :230px ;height: 230px"> </a>
                     <div>
                         <input type="hidden" name="" id="qty" value="1">
                         <ul class="" id="hoverList">
@@ -234,40 +234,40 @@ include "includes/headers.inc.php";
         <div class="container-fluid py-5 col-11">
 
             <div class="row">
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://banner2.cleanpng.com/20180802/lwr/kisspng-armani-logo-portable-network-graphics-fashion-desi-ga-logosu-4-y%C4%B1ld%C4%B1z-252-252-drm-pictures-free-5b631c6946e523.5793332515332219932904.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://i.pinimg.com/originals/ac/37/53/ac37539083035da7f45bc6dd29424187.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://www.pngfind.com/pngs/m/551-5510928_prada-logo-png-prada-logo-transparent-png.png" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
                 </div>
-                <div class="col-2 col-lg-1">
+                <div class="col-3 col-lg-1">
                     <img src="https://www.pngfind.com/pngs/m/551-5510928_prada-logo-png-prada-logo-transparent-png.png" alt="brand logo" class="img-fluid">
                 </div>
             </div>

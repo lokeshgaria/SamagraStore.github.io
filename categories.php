@@ -70,8 +70,8 @@ if (isset($_GET['sort'])) {
         if (count($catData) > 0) {
             foreach ($catData as   $value) { ?>
 
-                <div class="col-lg-3 col-sm-3 col-6">
-                    <a href="productDetails.php?product_id=<?php echo $value['id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" class="img-fluid" style="height:310px; width:240px;"></a>
+                <div class="col-lg-2 col-sm-3 col-6">
+                    <a href="productDetails.php?product_id=<?php echo $value['id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" class="img-fluid" style="height:230px; width:240px;"></a>
                     <ul class="" id="hoverList">
                         <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
                         <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
@@ -97,62 +97,35 @@ if (isset($_GET['sort'])) {
 <div class="container " id="featured">
     <h3 class=" text-center my-5 border-bottom"> Popular Products</h3>
     <div class="row ">
-        <div class="col-lg-3 col-sm-3 col-6">
-            <img src="https://m.media-amazon.com/images/I/31JlzuFiFgL._AC_SR160,160_.jpg" alt="product1" class="img-fluid">
-            <p>pTron BassFest Stereo in-Ear </p>
-            <div class="rating">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-                <p>₹ 291.00 - ₹ 649.00</p>
-            </div>
+       
+    <?php
+      $num = rand(1,3);
+        $catData = get_product($conn, '',$num, '', '', $sortdata,"",$subCatId);
+        if (count($catData) > 0) {
+            foreach ($catData as   $value) { ?>
 
-        </div>
+                <div class="col-lg-2 col-sm-3 col-6">
+                    <a href="productDetails.php?product_id=<?php echo $value['id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" class="img-fluid" style="height:230px; width:240px;"></a>
+                    <ul class="" id="hoverList">
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="manage_cart(<?php echo  $value['id']; ?>,'add')"><i class="fas text-secondary fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <p class="text-capitalize font-weight-bold text-center my-2"></p>
+                  
+                    <div class="rating text-center">
+                        <p><?php echo $value['name']; ?></p>
+                        <p class="font-weight-bold">
+                            <span class="text-muted text-center"> ₹<s><?php echo $value['mrp']; ?></s> </span> &nbsp; ₹ <?php echo $value['price']; ?>
+                        </p>
+                    </div>
+                </div>
+        <?php   }
+        } else {
+            echo '<p class="text-danger text-center text-capitalize font-weight-bold "> No products related to the selected category. </p>';
+        }
+        ?>
 
-        <div class="col-lg-3 col-sm-3 col-6">
-            <img src="https://m.media-amazon.com/images/I/41i3BkFyqdL._AC_SR160,160_.jpg" alt="product1" class="img-fluid">
-            <p> pTron Bassbuds in-Ear</p>
-            <div class="rating">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-
-                <p>₹650.00</p>
-            </div>
-
-        </div>
-
-        <div class="col-lg-3 col-sm-3 col-6">
-            <img src="https://images-eu.ssl-images-amazon.com/images/I/61pio7PNxFL._AC_UL160_SR160,160_.jpg" class="img-fluid">
-            <p> JBL Tune 500 Powerful </p>
-            <div class="rating">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <i class="far fa-star text-warning"></i>
-                <p>₹ 490.00</p>
-            </div>
-
-        </div>
-
-        <div class="col-lg-3 col-sm-3 col-6">
-            <img src="https://images-eu.ssl-images-amazon.com/images/I/61US9yCTRJL._AC_UL160_SR160,160_.jpg" class="img-fluid">
-            <p> boAt Rockerz 400 Headphone</p>
-            <div class="rating">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-                <p>₹ 399.00</p>
-            </div>
-
-        </div>
+        
     </div>
 </div>
 <!-- Featured Products ends here -->

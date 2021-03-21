@@ -261,6 +261,23 @@ header .site-title {
 .carousel-control-prev {
   left: -1%;
 }
+li.drop ul.dropdown {
+  background: #f8f9fa none repeat scroll 0 0;
+  box-shadow: 0 0 0px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 10%);
+  /* left: 0; */
+  text-align: start;
+  list-style: none;
+  margin: 0;
+  padding: 0 3px;
+  text-transform: capitalize;
+  position: absolute;
+  top: 55%;
+  transition: all 0.2s ease-in-out 0s;
+  visibility: hidden;
+  width: 155px;
+  text-align: center;
+  z-index: 999;
+}
 /** Slider two**/
 
 .site-btn.btn-span {
@@ -428,6 +445,11 @@ header .site-title {
   }
   .search-icon i {
     background-color: white;
+  }
+  .chat{
+    position: fixed;
+    top: 91%;
+    left: 86%;
   }
   .nav {
     display: block !important;

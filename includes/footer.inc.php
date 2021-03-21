@@ -30,7 +30,7 @@
 
         </div>
     </div>
-    <div  class="">
+    <div  class="container mr-3">
        <img src="./images/chat.png" alt="chat logo" class="chat btn box bounce-7" data-toggle="modal" data-target="#exampleModalCenter">
     </div>
     <!-- Button trigger modal -->
