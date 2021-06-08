@@ -45,7 +45,7 @@ include "includes/headers.inc.php";
                         </ul>
                     </div>
                     <div>
-                        <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
+                        <p class="text-capitalize font-weight-bold font  "><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
                             <span class="text-muted nav-item mx-3"> ₹ <s><?php echo $value['mrp']; ?></s></span>
                             <span class="text-dark nav-item mx-3">₹<?php echo $value['price']; ?></span>
@@ -77,7 +77,7 @@ include "includes/headers.inc.php";
                         </ul>
                     </div>
                     <div>
-                        <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
+                        <p class="text-capitalize font-weight-bold font m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
                             <span class="text-muted nav-item mx-3"> ₹ <s><?php echo $value['mrp']; ?></s></span>
                             <span class="text-dark nav-item mx-3">₹<?php echo $value['price']; ?></span>
@@ -100,9 +100,7 @@ include "includes/headers.inc.php";
             </div>
             <div class="col-lg-8 col-sm-8 col-12 shift ">
                 <h4 class=" font-weight-bold mx-5 py-3">Hello , I am Lokesh </h4>
-                <p class="mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi odio sit velit in
-                    architecto
-                    maiores? Nihil quod quaerat repellendus reiciendis, culpa ex pariatur?</p>
+                <p class="mx-5">A Passionate FrontEnd Developer 🚀 Having An Experience Of Designing And Building Web Applications With JavaScript / Reactjs And Many Other Libraries And Frameworks.</p>
                 <div class="mx-5">
                     <h6 class="  font-roboto text-capitalize font-weight-bold my-3">Let's share some ideas</h6>
                     <a href="https://www.facebook.com/lokesh.on.9" class="nav-link d-inline text-primary"><i class="fab fa-2x fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
@@ -238,7 +236,7 @@ include "includes/headers.inc.php";
                     <img src="https://banner2.cleanpng.com/20180802/lwr/kisspng-armani-logo-portable-network-graphics-fashion-desi-ga-logosu-4-y%C4%B1ld%C4%B1z-252-252-drm-pictures-free-5b631c6946e523.5793332515332219932904.jpg" alt="brand logo" class="img-fluid">
                 </div>
                 <div class="col-3 col-lg-1">
-                    <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
+                    <img src="./images/levis.png" alt="brand logo" class="img-fluid">
                 </div>
                 <div class="col-3 col-lg-1">
                     <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
@@ -259,7 +257,7 @@ include "includes/headers.inc.php";
                     <img src=" https://freepngimg.com/thumb/burberry/33068-6-burberry-logo-photos.png" alt=" brand logo" class="img-fluid mt-5">
                 </div>
                 <div class="col-3 col-lg-1">
-                    <img src="http://assets.stickpng.com/thumbs/585990234f6ae202fedf28cf.png" alt="brand logo" class="img-fluid">
+                    <img src="./images/levis.png" alt="brand logo" class="img-fluid">
                 </div>
                 <div class="col-3 col-lg-1">
                     <img src="https://www.iconicopticians.co.uk/images/uploads/logos-slider/VERSACE.jpg" alt="brand logo" class="img-fluid">
@@ -276,7 +274,7 @@ include "includes/headers.inc.php";
     <!-- Brands ends start here -->
   
 </main>
-
+ 
 <?php
 include "includes/footer.inc.php";
 ?>

@@ -1,7 +1,8 @@
 <footer>
       <!-- Our collection --->
-      <div class="container-fluid col-lg-11 my-5">
-        <h3 class="font-gugi"> Our collections</h3>
+      <div class="container col-lg-11 my-5">
+        <h3 class="font-gugi my-3"> Our collections</h3>
+        <div class="">
         <div class="row ">
             <?php
             $productData = get_product($conn, 6);
@@ -9,7 +10,7 @@
 
                 <div class="col-lg-2 col-sm-2 text-center col-6">
 
-                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid"> </a>
+                    <a href="categories.php?id=<?php echo $value['categories_id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>" class="img-fluid" style="min-height: 237px;"> </a>
                     <div>
                         <input type="hidden" name="" id="qty" value="1">
                         <ul class="" id="hoverList">
@@ -18,7 +19,7 @@
                         </ul>
                     </div>
                     <div>
-                        <p class="text-capitalize font-weight-bold m-2"><?php echo $value['name']; ?></p>
+                        <p class="text-capitalize font-weight-bold font m-2"><?php echo $value['name']; ?></p>
                         <div class="flex justify-content-end ">
                             <span class="text-muted nav-item mx-3"> ₹ <s><?php echo $value['mrp']; ?></s></span>
                             <span class="text-dark nav-item mx-3">₹<?php echo $value['price']; ?></span>
@@ -29,9 +30,12 @@
 
 
         </div>
+        </div>
+      
     </div>
     <div  class="container mr-3">
        <img src="./images/chat.png" alt="chat logo" class="chat btn box bounce-7" data-toggle="modal" data-target="#exampleModalCenter">
+      <a href="https://wa.me/918076298443"> <img src="https://forum.breakingkenyanews.com/wp-content/uploads/2021/01/whatsapp.png" class="whatsapplogo" alt=""></a>
     </div>
     <!-- Button trigger modal -->
  

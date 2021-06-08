@@ -50,7 +50,7 @@ if (isset($_GET['sort'])) {
 <div class="container px-5">
     <div class="row py-5">
         <div class="col-lg-6 col-6">
-            <h3>All Headset collection </h3>
+            <h3 class="text-capitalize">All  <?php echo $name['categories']; ?> collection </h3>
         </div>
         <div class="col-lg-6 col-6">
             <select class="custom-select w-75 float-right" onchange="sortProduct(<?php echo $cat_id; ?>)" id="filter">
@@ -70,7 +70,7 @@ if (isset($_GET['sort'])) {
         if (count($catData) > 0) {
             foreach ($catData as   $value) { ?>
 
-                <div class="col-lg-2 col-sm-3 col-6">
+                <div class="col-lg-2 col-sm-3 col-6 font">
                     <a href="productDetails.php?product_id=<?php echo $value['id']; ?>"><img src="adminPanel/<?php echo $value['img']; ?>" class="img-fluid" style="height:230px; width:240px;"></a>
                     <ul class="" id="hoverList">
                         <li class="nav-item"><a href="javascript:void(0)" onclick="wishlist(<?php echo $value['id']; ?>,'add')" style="display: <?php echo $display; ?>"><i class="fas text-danger fa-heart"></i></a></li>

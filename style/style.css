@@ -20,6 +20,19 @@
   cursor: pointer;
   border-radius: 26px;
 }
+/*whatsapp logo */
+.whatsapplogo{
+  position: fixed;
+  top: 81%;
+  width: 44px;
+  left: 95%;
+  border-radius: 30px;
+  
+}
+/**font for products*/
+.font{
+  font-family: 'Old Standard TT' !important;
+}
 .stage {
   border-bottom: 3px solid #444;
   display: flex;
@@ -113,13 +126,25 @@ li.drop ul.dropdown li {
   top: 9px;
   left: 97px;
   list-style: none;
+
+}
+#hoverList {
+  width: 40%;
+  position: absolute;
+  top: 9px;
+  left: 97px;
+  
+  list-style: none;
 }
 #hoverList li {
   background: #dee2e6f2;
-  padding: 4px;
-
-  margin: 8px 5px;
-  border-radius: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    margin-left: auto;
+    width: 30px;
+    text-align: center;
+    margin-top: 5px;
+    
 }
 
 html {
@@ -298,10 +323,11 @@ li.drop ul.dropdown {
 #featured-product div:hover {
   transition: 0.4s;
 }
-#featured-product div img {
+#featured-product div img{
   /*-webkit-box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
         -moz-box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);
         box-shadow: 1px 2px 10px -4px rgba(6,11,26,1);*/
+        
 }
 
 /* offer color */

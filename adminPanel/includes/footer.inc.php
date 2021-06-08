@@ -1,6 +1,6 @@
 <div class="col-xl-10 col-lg-9  col-md-8 ml-md-auto">
     <footer class="p-2 bg-light ">
-        <p>copyright &copy; Samagara Store <?php echo date('Y'); ?></p>
+        <p>copyright &copy; Apex Store <?php echo date('Y'); ?></p>
     </footer>
 </div>
 </div>
